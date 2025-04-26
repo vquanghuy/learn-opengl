@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		694ECB182DBD0D0800E490C4 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB172DBD0D0800E490C4 /* libglfw3.a */; };
+		694ECB212DBD117400E490C4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB202DBD117400E490C4 /* Cocoa.framework */; };
+		694ECB232DBD11C600E490C4 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB222DBD11C600E490C4 /* IOKit.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		69FAA3AB2DBCE00D00A95B21 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -28,12 +34,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		694ECB172DBD0D0800E490C4 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = "External/glfw/lib-arm64/libglfw3.a"; sourceTree = "<group>"; };
+		694ECB1E2DBD0EC400E490C4 /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.dylib; path = "External/glfw/lib-arm64/libglfw.3.dylib"; sourceTree = "<group>"; };
+		694ECB202DBD117400E490C4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		694ECB222DBD11C600E490C4 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		69FAA3AD2DBCE00D00A95B21 /* 01-Triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "01-Triangle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FAA3C32DBCE33000A95B21 /* 02-Texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "02-Texture"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FAA3CE2DBCE4AE00A95B21 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		694ECB1C2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "01-Triangle" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				gl.c,
+			);
+			target = 69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */;
+		};
+		694ECB1D2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "02-Texture" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				gl.c,
+			);
+			target = 69FAA3C22DBCE33000A95B21 /* 02-Texture */;
+		};
 		69FAA3BE2DBCE30800A95B21 /* Exceptions for "Tutorials" folder in "01-Triangle" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -53,6 +77,10 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		69FAA3B92DBCE2E300A95B21 /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				694ECB1C2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "01-Triangle" target */,
+				694ECB1D2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "02-Texture" target */,
+			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
@@ -72,6 +100,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				694ECB212DBD117400E490C4 /* Cocoa.framework in Frameworks */,
+				694ECB182DBD0D0800E490C4 /* libglfw3.a in Frameworks */,
+				694ECB232DBD11C600E490C4 /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,12 +116,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		694ECB162DBD0D0800E490C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				694ECB222DBD11C600E490C4 /* IOKit.framework */,
+				694ECB202DBD117400E490C4 /* Cocoa.framework */,
+				694ECB1E2DBD0EC400E490C4 /* libglfw.3.dylib */,
+				694ECB172DBD0D0800E490C4 /* libglfw3.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		69FAA3962DBCDF5D00A95B21 = {
 			isa = PBXGroup;
 			children = (
 				69FAA3CE2DBCE4AE00A95B21 /* README.md */,
 				69FAA3BA2DBCE2FF00A95B21 /* Tutorials */,
 				69FAA3B92DBCE2E300A95B21 /* Shared */,
+				694ECB162DBD0D0800E490C4 /* Frameworks */,
 				69FAA3A02DBCDF5D00A95B21 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -252,6 +295,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/External/glfw/include",
+					"$(SRCROOT)/External/glad/include",
+					"$(SRCROOT)/External/glm",
+				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/External/glfw/lib-$(CURRENT_ARCH)";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -307,10 +356,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/External/glfw/include",
+					"$(SRCROOT)/External/glad/include",
+					"$(SRCROOT)/External/glm",
+				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/External/glfw/lib-$(CURRENT_ARCH)";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -321,6 +377,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5K3S566ABV;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/glfw/lib-arm64",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -331,6 +391,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5K3S566ABV;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/glfw/lib-arm64",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
