@@ -1,6 +1,7 @@
 # LEARN OPENGL
 
-This repository contains my personal implementation and modifications of the tutorials found on the excellent learnopengl.com website and is specifically configured for macOS on Apple Silicon (arm64) and utilizes OpenGL 4.1.
+This repository contains my personal implementation and modifications of the tutorials found on the excellent [learnopengl.com](learnopengl.com) and is specifically configured for macOS on **Apple Silicon (arm64)** and utilizes **OpenGL 4.1**.
+
 Each tutorial is structured as a separate target within a single Xcode project (LearnOpenGL.xcodeproj), allowing for focused learning and execution of individual concepts.
 
 The project aims to provide a working example of setting up an OpenGL development environment on macOS, including integrating necessary external libraries and macOS frameworks.
@@ -32,4 +33,6 @@ LearnOpenGL/
 
 ## Acknowledgements
 
-This project is based on the fantastic tutorials provided by learnopengl.com. The content and structure of the tutorials have been an invaluable resource for learning OpenGL. My implementations include personal modifications and adaptations for the macOS environment.
+This project is based on the fantastic tutorials provided by [learnopengl.com](learnopengl.com). The content and structure of the tutorials have been an invaluable resource for learning OpenGL. 
+
+My implementations include personal modifications and adaptations for the macOS environment.
