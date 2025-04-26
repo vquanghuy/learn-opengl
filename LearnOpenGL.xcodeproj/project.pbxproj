@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXCopyFilesBuildPhase section */
-		69FAA39D2DBCDF5D00A95B21 /* CopyFiles */ = {
+		69FAA3AB2DBCE00D00A95B21 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		69FAA3C12DBCE33000A95B21 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -19,19 +28,54 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		69FAA39F2DBCDF5D00A95B21 /* LearnOpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGL; sourceTree = BUILT_PRODUCTS_DIR; };
+		69FAA3AD2DBCE00D00A95B21 /* 01-Triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "01-Triangle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69FAA3C32DBCE33000A95B21 /* 02-Texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "02-Texture"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69FAA3CE2DBCE4AE00A95B21 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		69FAA3BE2DBCE30800A95B21 /* Exceptions for "Tutorials" folder in "01-Triangle" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"01-Triangle/main.cpp",
+			);
+			target = 69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */;
+		};
+		69FAA3CD2DBCE33600A95B21 /* Exceptions for "Tutorials" folder in "02-Texture" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"02-Texture/main.cpp",
+			);
+			target = 69FAA3C22DBCE33000A95B21 /* 02-Texture */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		69FAA3A12DBCDF5D00A95B21 /* LearnOpenGL */ = {
+		69FAA3B92DBCE2E300A95B21 /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LearnOpenGL;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		69FAA3BA2DBCE2FF00A95B21 /* Tutorials */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				69FAA3BE2DBCE30800A95B21 /* Exceptions for "Tutorials" folder in "01-Triangle" target */,
+				69FAA3CD2DBCE33600A95B21 /* Exceptions for "Tutorials" folder in "02-Texture" target */,
+			);
+			path = Tutorials;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		69FAA39C2DBCDF5D00A95B21 /* Frameworks */ = {
+		69FAA3AA2DBCE00D00A95B21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69FAA3C02DBCE33000A95B21 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,7 +88,9 @@
 		69FAA3962DBCDF5D00A95B21 = {
 			isa = PBXGroup;
 			children = (
-				69FAA3A12DBCDF5D00A95B21 /* LearnOpenGL */,
+				69FAA3CE2DBCE4AE00A95B21 /* README.md */,
+				69FAA3BA2DBCE2FF00A95B21 /* Tutorials */,
+				69FAA3B92DBCE2E300A95B21 /* Shared */,
 				69FAA3A02DBCDF5D00A95B21 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,7 +98,8 @@
 		69FAA3A02DBCDF5D00A95B21 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				69FAA39F2DBCDF5D00A95B21 /* LearnOpenGL */,
+				69FAA3AD2DBCE00D00A95B21 /* 01-Triangle */,
+				69FAA3C32DBCE33000A95B21 /* 02-Texture */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,26 +107,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		69FAA39E2DBCDF5D00A95B21 /* LearnOpenGL */ = {
+		69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 69FAA3A62DBCDF5D00A95B21 /* Build configuration list for PBXNativeTarget "LearnOpenGL" */;
+			buildConfigurationList = 69FAA3B12DBCE00D00A95B21 /* Build configuration list for PBXNativeTarget "01-Triangle" */;
 			buildPhases = (
-				69FAA39B2DBCDF5D00A95B21 /* Sources */,
-				69FAA39C2DBCDF5D00A95B21 /* Frameworks */,
-				69FAA39D2DBCDF5D00A95B21 /* CopyFiles */,
+				69FAA3A92DBCE00D00A95B21 /* Sources */,
+				69FAA3AA2DBCE00D00A95B21 /* Frameworks */,
+				69FAA3AB2DBCE00D00A95B21 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				69FAA3A12DBCDF5D00A95B21 /* LearnOpenGL */,
-			);
-			name = LearnOpenGL;
+			name = "01-Triangle";
 			packageProductDependencies = (
 			);
-			productName = LearnOpenGL;
-			productReference = 69FAA39F2DBCDF5D00A95B21 /* LearnOpenGL */;
+			productName = "01-triangle";
+			productReference = 69FAA3AD2DBCE00D00A95B21 /* 01-Triangle */;
+			productType = "com.apple.product-type.tool";
+		};
+		69FAA3C22DBCE33000A95B21 /* 02-Texture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69FAA3C72DBCE33000A95B21 /* Build configuration list for PBXNativeTarget "02-Texture" */;
+			buildPhases = (
+				69FAA3BF2DBCE33000A95B21 /* Sources */,
+				69FAA3C02DBCE33000A95B21 /* Frameworks */,
+				69FAA3C12DBCE33000A95B21 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "02-Texture";
+			packageProductDependencies = (
+			);
+			productName = "02-Texture";
+			productReference = 69FAA3C32DBCE33000A95B21 /* 02-Texture */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -91,7 +154,10 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					69FAA39E2DBCDF5D00A95B21 = {
+					69FAA3AC2DBCE00D00A95B21 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					69FAA3C22DBCE33000A95B21 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
@@ -110,13 +176,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				69FAA39E2DBCDF5D00A95B21 /* LearnOpenGL */,
+				69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */,
+				69FAA3C22DBCE33000A95B21 /* 02-Texture */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		69FAA39B2DBCDF5D00A95B21 /* Sources */ = {
+		69FAA3A92DBCE00D00A95B21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69FAA3BF2DBCE33000A95B21 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -241,7 +315,7 @@
 			};
 			name = Release;
 		};
-		69FAA3A72DBCDF5D00A95B21 /* Debug */ = {
+		69FAA3B22DBCE00D00A95B21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -251,7 +325,27 @@
 			};
 			name = Debug;
 		};
-		69FAA3A82DBCDF5D00A95B21 /* Release */ = {
+		69FAA3B32DBCE00D00A95B21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5K3S566ABV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		69FAA3C82DBCE33000A95B21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5K3S566ABV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		69FAA3C92DBCE33000A95B21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -273,11 +367,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		69FAA3A62DBCDF5D00A95B21 /* Build configuration list for PBXNativeTarget "LearnOpenGL" */ = {
+		69FAA3B12DBCE00D00A95B21 /* Build configuration list for PBXNativeTarget "01-Triangle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				69FAA3A72DBCDF5D00A95B21 /* Debug */,
-				69FAA3A82DBCDF5D00A95B21 /* Release */,
+				69FAA3B22DBCE00D00A95B21 /* Debug */,
+				69FAA3B32DBCE00D00A95B21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69FAA3C72DBCE33000A95B21 /* Build configuration list for PBXNativeTarget "02-Texture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69FAA3C82DBCE33000A95B21 /* Debug */,
+				69FAA3C92DBCE33000A95B21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
