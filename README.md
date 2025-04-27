@@ -57,9 +57,11 @@ This project is based on the fantastic tutorials provided by [learnopengl.com](l
 
 My implementations include personal modifications and adaptations for the macOS environment.
 
-## Samples
+## Tutorials
 
-<img width="400" alt="image" src="https://github.com/user-attachments/assets/4b3b75ce-9d32-43f8-980e-07c608e9c7f7" />
+<img width="400" alt="tut-01-triangle" src="https://github.com/user-attachments/assets/4b3b75ce-9d32-43f8-980e-07c608e9c7f7" />
 
 <img width="400" alt="tut-02-texture" src="https://github.com/user-attachments/assets/ad73842b-d2fa-402e-bd86-bd69d9382da1" />
+
+<img width="400" alt="tut-03-transformation" src="https://github.com/user-attachments/assets/bccb3df0-d0b7-4932-8708-856157a3d6e9" />
 
