@@ -31,7 +31,25 @@ LearnOpenGL/
 │           └── x86_64/      // libglfw3.a for Intel
 ├── Assets/                  // Textures, models, shaders - will be copied to executable folder
 └── README.md
-``` 
+```
+
+## Environment and Libraries
+
+This project is developed and tested on the following environment:
+
+- Processor: M1 Pro (arm64 architecture)
+- Operating System: macOS 15.4.1
+- OpenGL Version: 4.1
+
+The following external libraries are used:
+
+- [GLAD](https://glad.dav1d.de/): Used as the OpenGL loader to manage function pointers.
+- [GLFW](https://www.glfw.org/): Provides window creation, OpenGL context management, and input handling.
+- [STB](https://github.com/nothings/stb): Used for loading images (specifically [stb_image.h](https://github.com/nothings/stb/blob/master/stb_image.h)) for textures.
+- [GLM](https://github.com/g-truc/glm): A header-only mathematics library for graphics software.
+- [Dear ImGui](https://github.com/ocornut/imgui): A bloat-free graphical user interface library for C++.
+- [tinygltf](https://github.com/syoyo/tinygltf): A minimal C++ library for loading glTF 3D models.
+- [Jolt Physics](https://github.com/jrouwe/JoltPhysics): A high-performance, open-source, C++ physics engine.
 
 ## Acknowledgements
 
