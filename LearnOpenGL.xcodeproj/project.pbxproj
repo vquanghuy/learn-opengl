@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		694ECB182DBD0D0800E490C4 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB172DBD0D0800E490C4 /* libglfw3.a */; };
 		694ECB212DBD117400E490C4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB202DBD117400E490C4 /* Cocoa.framework */; };
 		694ECB232DBD11C600E490C4 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB222DBD11C600E490C4 /* IOKit.framework */; };
+		69AE2FEE2DBDDF000064AF59 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB222DBD11C600E490C4 /* IOKit.framework */; };
+		69AE2FEF2DBDDF050064AF59 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB202DBD117400E490C4 /* Cocoa.framework */; };
+		69AE2FF02DBDE0F00064AF59 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB172DBD0D0800E490C4 /* libglfw3.a */; };
+		69AE2FF12DBDE0FF0064AF59 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB172DBD0D0800E490C4 /* libglfw3.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,12 +27,12 @@
 		};
 		69FAA3C12DBCE33000A95B21 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "Assets/02-Texture";
+			dstSubfolderSpec = 16;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -58,6 +61,15 @@
 			);
 			target = 69FAA3C22DBCE33000A95B21 /* 02-Texture */;
 		};
+		69AE2FF72DBDE1180064AF59 /* Exceptions for "Tutorials" folder in "02-Texture" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"02-Texture/main.cpp",
+				"02-Texture/shaderLoader.cpp",
+				"02-Texture/textureLoader.cpp",
+			);
+			target = 69FAA3C22DBCE33000A95B21 /* 02-Texture */;
+		};
 		69FAA3BE2DBCE30800A95B21 /* Exceptions for "Tutorials" folder in "01-Triangle" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -66,16 +78,26 @@
 			);
 			target = 69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */;
 		};
-		69FAA3CD2DBCE33600A95B21 /* Exceptions for "Tutorials" folder in "02-Texture" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"02-Texture/main.cpp",
-			);
-			target = 69FAA3C22DBCE33000A95B21 /* 02-Texture */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		69AE2FF82DBDE1180064AF59 /* Exceptions for "Tutorials" folder in "Compile Sources" phase from "02-Texture" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 69FAA3BF2DBCE33000A95B21 /* Sources */;
+			membershipExceptions = (
+				"02-Texture/shaderLoader.h",
+				"02-Texture/textureLoader.h",
+			);
+		};
+		69AE2FFC2DBDE1BF0064AF59 /* Exceptions for "Assets" folder in "Copy Files" phase from "02-Texture" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 69FAA3C12DBCE33000A95B21 /* CopyFiles */;
+			membershipExceptions = (
+				"02-Texture/crate1.jpg",
+				"02-Texture/rectangle.frag.glsl",
+				"02-Texture/rectangle.vert.glsl",
+			);
+		};
 		69CD0ADF2DBD9E6700557758 /* Exceptions for "Assets" folder in "Copy Files" phase from "01-Triangle" target */ = {
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = 69FAA3AB2DBCE00D00A95B21 /* CopyFiles */;
@@ -91,6 +113,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				69CD0ADF2DBD9E6700557758 /* Exceptions for "Assets" folder in "Copy Files" phase from "01-Triangle" target */,
+				69AE2FFC2DBDE1BF0064AF59 /* Exceptions for "Assets" folder in "Copy Files" phase from "02-Texture" target */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -108,7 +131,8 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				69FAA3BE2DBCE30800A95B21 /* Exceptions for "Tutorials" folder in "01-Triangle" target */,
-				69FAA3CD2DBCE33600A95B21 /* Exceptions for "Tutorials" folder in "02-Texture" target */,
+				69AE2FF72DBDE1180064AF59 /* Exceptions for "Tutorials" folder in "02-Texture" target */,
+				69AE2FF82DBDE1180064AF59 /* Exceptions for "Tutorials" folder in "Compile Sources" phase from "02-Texture" target */,
 			);
 			path = Tutorials;
 			sourceTree = "<group>";
@@ -121,8 +145,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				694ECB212DBD117400E490C4 /* Cocoa.framework in Frameworks */,
-				694ECB182DBD0D0800E490C4 /* libglfw3.a in Frameworks */,
 				694ECB232DBD11C600E490C4 /* IOKit.framework in Frameworks */,
+				69AE2FF02DBDE0F00064AF59 /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +154,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69AE2FEF2DBDDF050064AF59 /* Cocoa.framework in Frameworks */,
+				69AE2FEE2DBDDF000064AF59 /* IOKit.framework in Frameworks */,
+				69AE2FF12DBDE0FF0064AF59 /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +353,7 @@
 					"$(SRCROOT)/External/glfw/include",
 					"$(SRCROOT)/External/glad/include",
 					"$(SRCROOT)/External/glm",
+					"$(SRCROOT)/External/stb",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/External/glfw/lib-$(CURRENT_ARCH)";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
@@ -387,6 +415,7 @@
 					"$(SRCROOT)/External/glfw/include",
 					"$(SRCROOT)/External/glad/include",
 					"$(SRCROOT)/External/glm",
+					"$(SRCROOT)/External/stb",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/External/glfw/lib-$(CURRENT_ARCH)";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
@@ -431,20 +460,34 @@
 		69FAA3C82DBCE33000A95B21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5K3S566ABV;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/glfw/lib-arm64",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		69FAA3C92DBCE33000A95B21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5K3S566ABV;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/glfw/lib-arm64",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
