@@ -5,10 +5,13 @@ When developing OpenGL applications on macOS using GLFW and Xcode, I observed an
 
 This behavior was puzzling, especially after ensuring that `glfwDestroyWindow(window)` and `glfwTerminate()` was correctly called at the end of the program's execution to clean up GLFW's resources. The issue seemed tied directly to the presence of the debugger.
 
+![image](https://github.com/user-attachments/assets/cd3f081c-8919-4c43-ac0b-7ec52b917220)
 
 # Solution
 
 My first attempt to address this was to disable attaching the debugger to the executable, which did resolve the multiple window issue but meant I lost the ability to debug the program effectively.
+
+![image](https://github.com/user-attachments/assets/fc7f9be4-f437-4c79-bd79-e085a0c7805a)
 
 However, I later discovered that this was not a unique issue to my setup. It appeared to be a known problem with Xcode and GLFW, particularly when using the debugger.
 
@@ -22,8 +25,6 @@ By **inserting a simple sleep** for one second using , I gave the operating syst
     std::this_thread::sleep_for(std::chrono::seconds(1));
 #endif
 ```
-
-
 
 ---
 # References
