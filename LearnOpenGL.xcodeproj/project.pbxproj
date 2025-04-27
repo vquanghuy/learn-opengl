@@ -13,9 +13,21 @@
 		69AE2FEF2DBDDF050064AF59 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB202DBD117400E490C4 /* Cocoa.framework */; };
 		69AE2FF02DBDE0F00064AF59 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB172DBD0D0800E490C4 /* libglfw3.a */; };
 		69AE2FF12DBDE0FF0064AF59 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB172DBD0D0800E490C4 /* libglfw3.a */; };
+		69AE300A2DBE15160064AF59 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB202DBD117400E490C4 /* Cocoa.framework */; };
+		69AE300B2DBE15160064AF59 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB222DBD11C600E490C4 /* IOKit.framework */; };
+		69AE300C2DBE15160064AF59 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB172DBD0D0800E490C4 /* libglfw3.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		69AE300D2DBE15160064AF59 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "Assets/03-Transformation";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69FAA3AB2DBCE00D00A95B21 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -41,6 +53,7 @@
 		694ECB1E2DBD0EC400E490C4 /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.dylib; path = "External/glfw/lib-arm64/libglfw.3.dylib"; sourceTree = "<group>"; };
 		694ECB202DBD117400E490C4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		694ECB222DBD11C600E490C4 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		69AE30112DBE15160064AF59 /* 03-Transformation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "03-Transformation"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FAA3AD2DBCE00D00A95B21 /* 01-Triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "01-Triangle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FAA3C32DBCE33000A95B21 /* 02-Texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "02-Texture"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FAA3CE2DBCE4AE00A95B21 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -70,6 +83,22 @@
 			);
 			target = 69FAA3C22DBCE33000A95B21 /* 02-Texture */;
 		};
+		69AE301C2DBE15A60064AF59 /* Exceptions for "Tutorials" folder in "03-Transformation" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"03-Transformation/main.cpp",
+				"03-Transformation/shaderLoader.cpp",
+				"03-Transformation/textureLoader.cpp",
+			);
+			target = 69AE30072DBE15160064AF59 /* 03-Transformation */;
+		};
+		69AE301E2DBE15A60064AF59 /* Exceptions for "Shared" folder in "03-Transformation" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				gl.c,
+			);
+			target = 69AE30072DBE15160064AF59 /* 03-Transformation */;
+		};
 		69FAA3BE2DBCE30800A95B21 /* Exceptions for "Tutorials" folder in "01-Triangle" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -98,6 +127,23 @@
 				"02-Texture/rectangle.vert.glsl",
 			);
 		};
+		69AE30152DBE153B0064AF59 /* Exceptions for "Assets" folder in "Copy Files" phase from "03-Transformation" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 69AE300D2DBE15160064AF59 /* CopyFiles */;
+			membershipExceptions = (
+				"03-Transformation/crate1.jpg",
+				"03-Transformation/rectangle.frag.glsl",
+				"03-Transformation/rectangle.vert.glsl",
+			);
+		};
+		69AE301D2DBE15A60064AF59 /* Exceptions for "Tutorials" folder in "Compile Sources" phase from "03-Transformation" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 69AE30082DBE15160064AF59 /* Sources */;
+			membershipExceptions = (
+				"03-Transformation/shaderLoader.h",
+				"03-Transformation/textureLoader.h",
+			);
+		};
 		69CD0ADF2DBD9E6700557758 /* Exceptions for "Assets" folder in "Copy Files" phase from "01-Triangle" target */ = {
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = 69FAA3AB2DBCE00D00A95B21 /* CopyFiles */;
@@ -114,6 +160,7 @@
 			exceptions = (
 				69CD0ADF2DBD9E6700557758 /* Exceptions for "Assets" folder in "Copy Files" phase from "01-Triangle" target */,
 				69AE2FFC2DBDE1BF0064AF59 /* Exceptions for "Assets" folder in "Copy Files" phase from "02-Texture" target */,
+				69AE30152DBE153B0064AF59 /* Exceptions for "Assets" folder in "Copy Files" phase from "03-Transformation" target */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -123,6 +170,7 @@
 			exceptions = (
 				694ECB1C2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "01-Triangle" target */,
 				694ECB1D2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "02-Texture" target */,
+				69AE301E2DBE15A60064AF59 /* Exceptions for "Shared" folder in "03-Transformation" target */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -133,6 +181,8 @@
 				69FAA3BE2DBCE30800A95B21 /* Exceptions for "Tutorials" folder in "01-Triangle" target */,
 				69AE2FF72DBDE1180064AF59 /* Exceptions for "Tutorials" folder in "02-Texture" target */,
 				69AE2FF82DBDE1180064AF59 /* Exceptions for "Tutorials" folder in "Compile Sources" phase from "02-Texture" target */,
+				69AE301C2DBE15A60064AF59 /* Exceptions for "Tutorials" folder in "03-Transformation" target */,
+				69AE301D2DBE15A60064AF59 /* Exceptions for "Tutorials" folder in "Compile Sources" phase from "03-Transformation" target */,
 			);
 			path = Tutorials;
 			sourceTree = "<group>";
@@ -140,6 +190,16 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		69AE30092DBE15160064AF59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69AE300A2DBE15160064AF59 /* Cocoa.framework in Frameworks */,
+				69AE300B2DBE15160064AF59 /* IOKit.framework in Frameworks */,
+				69AE300C2DBE15160064AF59 /* libglfw3.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69FAA3AA2DBCE00D00A95B21 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -191,6 +251,7 @@
 			children = (
 				69FAA3AD2DBCE00D00A95B21 /* 01-Triangle */,
 				69FAA3C32DBCE33000A95B21 /* 02-Texture */,
+				69AE30112DBE15160064AF59 /* 03-Transformation */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,6 +259,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		69AE30072DBE15160064AF59 /* 03-Transformation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69AE300E2DBE15160064AF59 /* Build configuration list for PBXNativeTarget "03-Transformation" */;
+			buildPhases = (
+				69AE30082DBE15160064AF59 /* Sources */,
+				69AE30092DBE15160064AF59 /* Frameworks */,
+				69AE300D2DBE15160064AF59 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				69CD0AD42DBD9B4700557758 /* Assets */,
+			);
+			name = "03-Transformation";
+			packageProductDependencies = (
+			);
+			productName = "02-Texture";
+			productReference = 69AE30112DBE15160064AF59 /* 03-Transformation */;
+			productType = "com.apple.product-type.tool";
+		};
 		69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69FAA3B12DBCE00D00A95B21 /* Build configuration list for PBXNativeTarget "01-Triangle" */;
@@ -275,11 +358,19 @@
 			targets = (
 				69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */,
 				69FAA3C22DBCE33000A95B21 /* 02-Texture */,
+				69AE30072DBE15160064AF59 /* 03-Transformation */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		69AE30082DBE15160064AF59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69FAA3A92DBCE00D00A95B21 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,6 +388,40 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		69AE300F2DBE15160064AF59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/glfw/lib-arm64",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		69AE30102DBE15160064AF59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/glfw/lib-arm64",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
 		69FAA3A42DBCDF5D00A95B21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -494,6 +619,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		69AE300E2DBE15160064AF59 /* Build configuration list for PBXNativeTarget "03-Transformation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69AE300F2DBE15160064AF59 /* Debug */,
+				69AE30102DBE15160064AF59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		69FAA39A2DBCDF5D00A95B21 /* Build configuration list for PBXProject "LearnOpenGL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
