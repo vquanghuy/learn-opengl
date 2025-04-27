@@ -61,3 +61,5 @@ My implementations include personal modifications and adaptations for the macOS 
 
 <img width="400" alt="tut-01-triangle" src="https://github.com/user-attachments/assets/52083034-a7ab-420d-b30d-432ae9fdf68e" />
 
+<img width="400" alt="tut-02-texture" src="https://github.com/user-attachments/assets/ad73842b-d2fa-402e-bd86-bd69d9382da1" />
+
