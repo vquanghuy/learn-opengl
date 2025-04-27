@@ -6,6 +6,8 @@ Each tutorial is structured as a separate target within a single Xcode project (
 
 The project aims to provide a working example of setting up an OpenGL development environment on macOS, including integrating necessary external libraries and macOS frameworks.
 
+For detailed documentation, setup instructions, and troubleshooting guides, please visit the [Wiki](https://github.com/vquanghuy/learn-opengl/wiki).
+
 ## Structure
 
 The project follows a structured folder layout:
@@ -37,11 +39,7 @@ This project is based on the fantastic tutorials provided by [learnopengl.com](l
 
 My implementations include personal modifications and adaptations for the macOS environment.
 
-## Documents
-
-- [Xcode launches the program twice](/Documents/Xcode%20launches%20the%20program%20twice.md)
-
 ## Samples
 
-<img width="752" alt="image" src="https://github.com/user-attachments/assets/52083034-a7ab-420d-b30d-432ae9fdf68e" />
+<img width="400" alt="tut-01-triangle" src="https://github.com/user-attachments/assets/52083034-a7ab-420d-b30d-432ae9fdf68e" />
 
