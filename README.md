@@ -1,4 +1,4 @@
-# LEARN OPENGL
+# Learn OpenGL
 
 This repository contains my personal implementation and modifications of the tutorials found on the excellent [learnopengl.com](learnopengl.com) and is specifically configured for macOS on **Apple Silicon (arm64)** and utilizes **OpenGL 4.1**.
 
@@ -59,7 +59,7 @@ My implementations include personal modifications and adaptations for the macOS 
 
 ## Samples
 
-<img width="400" alt="tut-01-triangle" src="https://github.com/user-attachments/assets/52083034-a7ab-420d-b30d-432ae9fdf68e" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/4b3b75ce-9d32-43f8-980e-07c608e9c7f7" />
 
 <img width="400" alt="tut-02-texture" src="https://github.com/user-attachments/assets/ad73842b-d2fa-402e-bd86-bd69d9382da1" />
 
