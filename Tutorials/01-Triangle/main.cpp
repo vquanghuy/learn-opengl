@@ -1,4 +1,6 @@
 #include <iostream>
+#include <chrono>
+#include <thread>
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
 
@@ -18,6 +20,9 @@ int main(int argc, const char * argv[])
     
 #ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    
+    // Sleep for 1 second as waiting debugger to start
+    std::this_thread::sleep_for(std::chrono::seconds(1));
 #endif
 
     /* Create a windowed mode window and its OpenGL context */
