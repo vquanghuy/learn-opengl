@@ -26,7 +26,7 @@ int main(int argc, const char * argv[])
 #endif
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello Triangle", NULL, NULL);
+    window = glfwCreateWindow(640, 480, "01 - Color Triangle", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
