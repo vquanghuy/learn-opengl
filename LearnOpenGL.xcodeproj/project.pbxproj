@@ -15,12 +15,12 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		69FAA3AB2DBCE00D00A95B21 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "Assets/01-Triangle";
+			dstSubfolderSpec = 16;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		69FAA3C12DBCE33000A95B21 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -61,6 +61,7 @@
 		69FAA3BE2DBCE30800A95B21 /* Exceptions for "Tutorials" folder in "01-Triangle" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"01-Triangle/loader.cpp",
 				"01-Triangle/main.cpp",
 			);
 			target = 69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */;
@@ -74,7 +75,26 @@
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		69CD0ADF2DBD9E6700557758 /* Exceptions for "Assets" folder in "Copy Files" phase from "01-Triangle" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 69FAA3AB2DBCE00D00A95B21 /* CopyFiles */;
+			membershipExceptions = (
+				"01-Triangle/triangle.frag.glsl",
+				"01-Triangle/triangle.vert.glsl",
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		69CD0AD42DBD9B4700557758 /* Assets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				69CD0ADF2DBD9E6700557758 /* Exceptions for "Assets" folder in "Copy Files" phase from "01-Triangle" target */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		69FAA3B92DBCE2E300A95B21 /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -130,6 +150,7 @@
 		69FAA3962DBCDF5D00A95B21 = {
 			isa = PBXGroup;
 			children = (
+				69CD0AD42DBD9B4700557758 /* Assets */,
 				69FAA3CE2DBCE4AE00A95B21 /* README.md */,
 				69FAA3BA2DBCE2FF00A95B21 /* Tutorials */,
 				69FAA3B92DBCE2E300A95B21 /* Shared */,
@@ -162,6 +183,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				69CD0AD42DBD9B4700557758 /* Assets */,
+			);
 			name = "01-Triangle";
 			packageProductDependencies = (
 			);
@@ -180,6 +204,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				69CD0AD42DBD9B4700557758 /* Assets */,
 			);
 			name = "02-Texture";
 			packageProductDependencies = (
@@ -374,28 +401,30 @@
 		69FAA3B22DBCE00D00A95B21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5K3S566ABV;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/External/glfw/lib-arm64",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		69FAA3B32DBCE00D00A95B21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5K3S566ABV;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/External/glfw/lib-arm64",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
