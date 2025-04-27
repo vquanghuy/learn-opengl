@@ -36,3 +36,8 @@ LearnOpenGL/
 This project is based on the fantastic tutorials provided by [learnopengl.com](learnopengl.com). The content and structure of the tutorials have been an invaluable resource for learning OpenGL. 
 
 My implementations include personal modifications and adaptations for the macOS environment.
+
+## Samples
+
+<img width="752" alt="image" src="https://github.com/user-attachments/assets/52083034-a7ab-420d-b30d-432ae9fdf68e" />
+
