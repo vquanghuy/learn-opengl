@@ -26,8 +26,8 @@ LearnOpenGL/
 │       ├── include/         // GLFW header files
 │       └── lib/             // Compiled GLFW library files (architecture-specific)
 │           ├── arm64/       // libglfw3.a for Apple Silicon
-│           └── x86_64/    // libglfw3.a for Intel
-├── Assets/                  // Optional: Textures, models, shaders
+│           └── x86_64/      // libglfw3.a for Intel
+├── Assets/                  // Textures, models, shaders - will be copied to executable folder
 └── README.md
 ``` 
 
@@ -36,6 +36,10 @@ LearnOpenGL/
 This project is based on the fantastic tutorials provided by [learnopengl.com](learnopengl.com). The content and structure of the tutorials have been an invaluable resource for learning OpenGL. 
 
 My implementations include personal modifications and adaptations for the macOS environment.
+
+## Documents
+
+- [Xcode launches the program twice](/Documents/Xcode%20launches%20the%20program%20twice.md)
 
 ## Samples
 
