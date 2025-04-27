@@ -1,0 +1,8 @@
+# Xcode
+.DS_Store
+DerivedData/
+*.xcodeproj/*.xcuserdatad/
+*.xcworkspace/*.xcuserdatad/
+*.xcstickers/DerivedData/
+*.xcstickers/*.xcassets/
+*.xcstickers/*.appiconset/
