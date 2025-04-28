@@ -63,5 +63,6 @@ My implementations include personal modifications and adaptations for the macOS 
 
 <img width="400" alt="tut-02-texture" src="https://github.com/user-attachments/assets/ad73842b-d2fa-402e-bd86-bd69d9382da1" />
 
-<img width="400" alt="tut-03-transformation" src="https://github.com/user-attachments/assets/bccb3df0-d0b7-4932-8708-856157a3d6e9" />
+<img width="400" alt="tut-03-transformation" src="https://github.com/user-attachments/assets/c0be0457-2635-4677-8287-0c5e0c114c77" />
+
 
