@@ -15,12 +15,8 @@
 #include "shaderLoader.h"
 #include "textureLoader.h"
 
-glm::mat4 camera(float translate, float rotateZ = 0.0f) {
-    glm::mat4 projection = glm::perspective(glm::pi<float>() * 0.25f, 4.0f / 3.0f, 0.1f, 100.f);
-    glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -translate));
-    glm::mat4 model = glm::rotate(glm::mat4(1.0f), rotateZ, glm::vec3(0.0f, 0.0f, 1.0f));
-    return projection * view * model;
-}
+#define WINDOW_WIDTH 640.0f
+#define WINDOW_HEIGHT 480.0f
 
 void limitFPS(int targetFPS) {
     static auto lastTime = std::chrono::high_resolution_clock::now();
@@ -55,7 +51,7 @@ int main(void) {
 #endif
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "04 - Transformation", NULL, NULL);
+    window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "03 - Transformation", NULL, NULL);
     if (!window) {
         glfwTerminate();
         return -1;
@@ -126,23 +122,37 @@ int main(void) {
     // as we only have a single shader, we could also just activate our shader once beforehand if we want to 
     glUseProgram(shaderProgram);
 
-    // initialize camera matrix
-    float rotationRadian = 0.0f;
-    glm::mat4 cameraMatrix = camera(2.0f);
-    GLuint mvpLoc = glGetUniformLocation(shaderProgram, "mvp");
+    // initialize matrices
+    glm::mat4 modelMatrix = glm::mat4(1.0f);
+    modelMatrix = glm::translate(modelMatrix, glm::vec3(.0f, .0f, -2.5f));
+    
+    glm::mat4 viewMatrix = glm::mat4(1.0f);
+    
+    float fovDegrees = 45.0f; // Field of View in degrees
+    float aspectRatio = WINDOW_WIDTH / WINDOW_HEIGHT; // Aspect ratio of window
+    float nearPlane = 0.1f; // Distance to the near clipping plane
+    float farPlane = 100.0f; // Distance to the far clipping plane
+
+    glm::mat4 projectionMatrix = glm::perspective(glm::radians(fovDegrees), aspectRatio, nearPlane, farPlane);
+
+    // uniform location
+    GLuint uModelLoc = glGetUniformLocation(shaderProgram, "uModel");
+    GLuint uViewLoc = glGetUniformLocation(shaderProgram, "uView");
+    GLuint uProjectionLoc = glGetUniformLocation(shaderProgram, "uProjection");
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window)) {
-        /* Render here */
+        // Render here
         glClearColor(0.16f, 0.24f, 0.32f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+        
+        // calculate new rotation
+        modelMatrix = glm::rotate(modelMatrix, glm::radians(1.0f), glm::vec3(0.0f, 0.0f, 1.0f));
 
-        // update camera matrix
-        cameraMatrix = camera(2.0f, rotationRadian);
-        glUniformMatrix4fv(mvpLoc, 1, GL_FALSE, glm::value_ptr(cameraMatrix));
-
-        // convert degrees to radians and increase rotation angle
-        rotationRadian += 0.01f;
+        // update matrix
+        glUniformMatrix4fv(uModelLoc, 1, GL_FALSE, glm::value_ptr(modelMatrix));
+        glUniformMatrix4fv(uViewLoc, 1, GL_FALSE, glm::value_ptr(viewMatrix));
+        glUniformMatrix4fv(uProjectionLoc, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
 
         // render the triangle with texture
         // enable texture unit
