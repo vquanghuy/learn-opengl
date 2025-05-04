@@ -33,6 +33,8 @@ LearnOpenGL/
 └── README.md
 ```
 
+The source code also structured based on [Modularizing OpenGL Development with C++: Building Essential Classes](https://github.com/vquanghuy/learn-opengl/wiki/Modularizing-OpenGL-Development-with-C--:-Building-Essential-Classes)
+
 ## Environment and Libraries
 
 This project is developed and tested on the following environment:
@@ -49,11 +51,12 @@ The following external libraries are used:
 - [GLM](https://github.com/g-truc/glm): A header-only mathematics library for graphics software.
 - [Dear ImGui](https://github.com/ocornut/imgui): A bloat-free graphical user interface library for C++.
 - [tinygltf](https://github.com/syoyo/tinygltf): A minimal C++ library for loading glTF 3D models.
+- [tinyobjloader](https://github.com/tinyobjloader/tinyobjloader): A minimal C++ library for loading OBJ 3D models.
 - [Jolt Physics](https://github.com/jrouwe/JoltPhysics): A high-performance, open-source, C++ physics engine.
 
 ## Acknowledgements
 
-This project is based on the fantastic tutorials provided by [learnopengl.com](learnopengl.com). The content and structure of the tutorials have been an invaluable resource for learning OpenGL. 
+This project is based on the fantastic tutorials provided by [learnopengl.com](https://learnopengl.com). The content and structure of the tutorials have been an invaluable resource for learning OpenGL. 
 
 My implementations include personal modifications and adaptations for the macOS environment.
 
