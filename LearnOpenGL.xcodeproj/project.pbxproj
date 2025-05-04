@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		690C181D2DC63EA900218939 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB202DBD117400E490C4 /* Cocoa.framework */; };
+		690C181E2DC63EA900218939 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB222DBD11C600E490C4 /* IOKit.framework */; };
+		690C181F2DC63EA900218939 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB172DBD0D0800E490C4 /* libglfw3.a */; };
 		694ECB212DBD117400E490C4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB202DBD117400E490C4 /* Cocoa.framework */; };
 		694ECB232DBD11C600E490C4 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB222DBD11C600E490C4 /* IOKit.framework */; };
 		69AE2FEE2DBDDF000064AF59 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB222DBD11C600E490C4 /* IOKit.framework */; };
@@ -19,6 +22,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		690C18202DC63EA900218939 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "Assets/04-Camera";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69AE300D2DBE15160064AF59 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -49,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		690C18242DC63EA900218939 /* 04-Camera */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "04-Camera"; sourceTree = BUILT_PRODUCTS_DIR; };
 		694ECB172DBD0D0800E490C4 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = "External/glfw/lib-arm64/libglfw3.a"; sourceTree = "<group>"; };
 		694ECB1E2DBD0EC400E490C4 /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.dylib; path = "External/glfw/lib-arm64/libglfw.3.dylib"; sourceTree = "<group>"; };
 		694ECB202DBD117400E490C4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -60,17 +73,41 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		690C18262DC63EC100218939 /* Exceptions for "Tutorials" folder in "04-Camera" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"04-Camera/main.cpp",
+			);
+			target = 690C181A2DC63EA900218939 /* 04-Camera */;
+		};
+		690C18282DC63ED600218939 /* Exceptions for "Shared" folder in "04-Camera" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				FPSLimiter.cpp,
+				gl.c,
+				GLWindow.cpp,
+				Shader.cpp,
+				Texture.cpp,
+			);
+			target = 690C181A2DC63EA900218939 /* 04-Camera */;
+		};
 		694ECB1C2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "01-Triangle" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				FPSLimiter.cpp,
 				gl.c,
+				GLWindow.cpp,
+				Texture.cpp,
 			);
 			target = 69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */;
 		};
 		694ECB1D2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "02-Texture" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				FPSLimiter.cpp,
 				gl.c,
+				GLWindow.cpp,
+				Texture.cpp,
 			);
 			target = 69FAA3C22DBCE33000A95B21 /* 02-Texture */;
 		};
@@ -95,7 +132,10 @@
 		69AE301E2DBE15A60064AF59 /* Exceptions for "Shared" folder in "03-Transformation" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				FPSLimiter.cpp,
 				gl.c,
+				GLWindow.cpp,
+				Texture.cpp,
 			);
 			target = 69AE30072DBE15160064AF59 /* 03-Transformation */;
 		};
@@ -110,6 +150,15 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		690C18472DC716A700218939 /* Exceptions for "Assets" folder in "Copy Files" phase from "04-Camera" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 690C18202DC63EA900218939 /* CopyFiles */;
+			membershipExceptions = (
+				"04-Camera/crate1.jpg",
+				"04-Camera/rectangle.frag.glsl",
+				"04-Camera/rectangle.vert.glsl",
+			);
+		};
 		69AE2FF82DBDE1180064AF59 /* Exceptions for "Tutorials" folder in "Compile Sources" phase from "02-Texture" target */ = {
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = 69FAA3BF2DBCE33000A95B21 /* Sources */;
@@ -161,6 +210,7 @@
 				69CD0ADF2DBD9E6700557758 /* Exceptions for "Assets" folder in "Copy Files" phase from "01-Triangle" target */,
 				69AE2FFC2DBDE1BF0064AF59 /* Exceptions for "Assets" folder in "Copy Files" phase from "02-Texture" target */,
 				69AE30152DBE153B0064AF59 /* Exceptions for "Assets" folder in "Copy Files" phase from "03-Transformation" target */,
+				690C18472DC716A700218939 /* Exceptions for "Assets" folder in "Copy Files" phase from "04-Camera" target */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -171,6 +221,7 @@
 				694ECB1C2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "01-Triangle" target */,
 				694ECB1D2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "02-Texture" target */,
 				69AE301E2DBE15A60064AF59 /* Exceptions for "Shared" folder in "03-Transformation" target */,
+				690C18282DC63ED600218939 /* Exceptions for "Shared" folder in "04-Camera" target */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -183,6 +234,7 @@
 				69AE2FF82DBDE1180064AF59 /* Exceptions for "Tutorials" folder in "Compile Sources" phase from "02-Texture" target */,
 				69AE301C2DBE15A60064AF59 /* Exceptions for "Tutorials" folder in "03-Transformation" target */,
 				69AE301D2DBE15A60064AF59 /* Exceptions for "Tutorials" folder in "Compile Sources" phase from "03-Transformation" target */,
+				690C18262DC63EC100218939 /* Exceptions for "Tutorials" folder in "04-Camera" target */,
 			);
 			path = Tutorials;
 			sourceTree = "<group>";
@@ -190,6 +242,16 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		690C181C2DC63EA900218939 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				690C181D2DC63EA900218939 /* Cocoa.framework in Frameworks */,
+				690C181E2DC63EA900218939 /* IOKit.framework in Frameworks */,
+				690C181F2DC63EA900218939 /* libglfw3.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69AE30092DBE15160064AF59 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +314,7 @@
 				69FAA3AD2DBCE00D00A95B21 /* 01-Triangle */,
 				69FAA3C32DBCE33000A95B21 /* 02-Texture */,
 				69AE30112DBE15160064AF59 /* 03-Transformation */,
+				690C18242DC63EA900218939 /* 04-Camera */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,6 +322,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		690C181A2DC63EA900218939 /* 04-Camera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 690C18212DC63EA900218939 /* Build configuration list for PBXNativeTarget "04-Camera" */;
+			buildPhases = (
+				690C181B2DC63EA900218939 /* Sources */,
+				690C181C2DC63EA900218939 /* Frameworks */,
+				690C18202DC63EA900218939 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				69CD0AD42DBD9B4700557758 /* Assets */,
+			);
+			name = "04-Camera";
+			packageProductDependencies = (
+			);
+			productName = "02-Texture";
+			productReference = 690C18242DC63EA900218939 /* 04-Camera */;
+			productType = "com.apple.product-type.tool";
+		};
 		69AE30072DBE15160064AF59 /* 03-Transformation */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69AE300E2DBE15160064AF59 /* Build configuration list for PBXNativeTarget "03-Transformation" */;
@@ -359,11 +444,19 @@
 				69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */,
 				69FAA3C22DBCE33000A95B21 /* 02-Texture */,
 				69AE30072DBE15160064AF59 /* 03-Transformation */,
+				690C181A2DC63EA900218939 /* 04-Camera */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		690C181B2DC63EA900218939 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69AE30082DBE15160064AF59 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,6 +481,40 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		690C18222DC63EA900218939 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/glfw/lib-arm64",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		690C18232DC63EA900218939 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/glfw/lib-arm64",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
 		69AE300F2DBE15160064AF59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -619,6 +746,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		690C18212DC63EA900218939 /* Build configuration list for PBXNativeTarget "04-Camera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				690C18222DC63EA900218939 /* Debug */,
+				690C18232DC63EA900218939 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		69AE300E2DBE15160064AF59 /* Build configuration list for PBXNativeTarget "03-Transformation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
