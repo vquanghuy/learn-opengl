@@ -83,6 +83,7 @@
 		690C18282DC63ED600218939 /* Exceptions for "Shared" folder in "04-Camera" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Camera.cpp,
 				FPSLimiter.cpp,
 				gl.c,
 				GLWindow.cpp,
@@ -95,22 +96,14 @@
 		694ECB1C2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "01-Triangle" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				FPSLimiter.cpp,
 				gl.c,
-				GLWindow.cpp,
-				Mesh.cpp,
-				Texture.cpp,
 			);
 			target = 69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */;
 		};
 		694ECB1D2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "02-Texture" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				FPSLimiter.cpp,
 				gl.c,
-				GLWindow.cpp,
-				Mesh.cpp,
-				Texture.cpp,
 			);
 			target = 69FAA3C22DBCE33000A95B21 /* 02-Texture */;
 		};
@@ -135,11 +128,7 @@
 		69AE301E2DBE15A60064AF59 /* Exceptions for "Shared" folder in "03-Transformation" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				FPSLimiter.cpp,
 				gl.c,
-				GLWindow.cpp,
-				Mesh.cpp,
-				Texture.cpp,
 			);
 			target = 69AE30072DBE15160064AF59 /* 03-Transformation */;
 		};
