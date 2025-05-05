@@ -76,20 +76,20 @@
 		690C18262DC63EC100218939 /* Exceptions for "Tutorials" folder in "04-Camera" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"04-Camera/Camera.cpp",
+				"04-Camera/FPSLimiter.cpp",
+				"04-Camera/GLWindow.cpp",
 				"04-Camera/main.cpp",
+				"04-Camera/Mesh.cpp",
+				"04-Camera/Shader.cpp",
+				"04-Camera/Texture.cpp",
 			);
 			target = 690C181A2DC63EA900218939 /* 04-Camera */;
 		};
 		690C18282DC63ED600218939 /* Exceptions for "Shared" folder in "04-Camera" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Camera.cpp,
-				FPSLimiter.cpp,
 				gl.c,
-				GLWindow.cpp,
-				Mesh.cpp,
-				Shader.cpp,
-				Texture.cpp,
 			);
 			target = 690C181A2DC63EA900218939 /* 04-Camera */;
 		};
