@@ -86,6 +86,7 @@
 				FPSLimiter.cpp,
 				gl.c,
 				GLWindow.cpp,
+				Mesh.cpp,
 				Shader.cpp,
 				Texture.cpp,
 			);
@@ -97,6 +98,7 @@
 				FPSLimiter.cpp,
 				gl.c,
 				GLWindow.cpp,
+				Mesh.cpp,
 				Texture.cpp,
 			);
 			target = 69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */;
@@ -107,6 +109,7 @@
 				FPSLimiter.cpp,
 				gl.c,
 				GLWindow.cpp,
+				Mesh.cpp,
 				Texture.cpp,
 			);
 			target = 69FAA3C22DBCE33000A95B21 /* 02-Texture */;
@@ -135,6 +138,7 @@
 				FPSLimiter.cpp,
 				gl.c,
 				GLWindow.cpp,
+				Mesh.cpp,
 				Texture.cpp,
 			);
 			target = 69AE30072DBE15160064AF59 /* 03-Transformation */;

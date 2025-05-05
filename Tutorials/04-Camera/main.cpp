@@ -14,9 +14,85 @@
 #include "FPSLimiter.h"
 #include "Shader.h"
 #include "Texture.h"
+#include "Mesh.h"
 
 #define WINDOW_WIDTH 640
 #define WINDOW_HEIGHT 480
+
+Mesh loadCube() {
+    float cubeRawVertices[] = {
+        // positions          // texture coords
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f, // Back face
+         0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f, // Front face
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f, // Left face
+        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f, // Right face
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f, // Bottom face
+         0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f, // Top face
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+    };
+    
+    // Number of floats per vertex in your original data
+    const int FLOATS_PER_VERTEX = 5;
+    // Number of vertices (36 vertices for a cube defined this way)
+    const int NUM_VERTICES = sizeof(cubeRawVertices) / (FLOATS_PER_VERTEX * sizeof(float));
+
+    // Create the vector of Vertex objects
+    std::vector<Vertex> cubeVertices;
+    cubeVertices.reserve(NUM_VERTICES); // Reserve space for efficiency
+
+    // Manually populate the vector
+    for (int i = 0; i < NUM_VERTICES; ++i) {
+        Vertex vertex;
+
+        // Populate position (3 floats)
+        vertex.position.x = cubeRawVertices[i * FLOATS_PER_VERTEX + 0];
+        vertex.position.y = cubeRawVertices[i * FLOATS_PER_VERTEX + 1];
+        vertex.position.z = cubeRawVertices[i * FLOATS_PER_VERTEX + 2];
+
+        // Populate texture coordinates (2 floats)
+        vertex.texCoords.x = cubeRawVertices[i * FLOATS_PER_VERTEX + 3];
+        vertex.texCoords.y = cubeRawVertices[i * FLOATS_PER_VERTEX + 4];
+
+        // Add the created Vertex to the vector
+        cubeVertices.push_back(vertex);
+    }
+
+    return Mesh(cubeVertices);
+}
 
 // Framebuffer size callback (can be a lambda in main or a separate function)
 // This will be called by GLFW when the window is resized.
@@ -55,43 +131,11 @@ int main(void) {
         return -1; // Exit application if texture loading failed
     }
 
-    // setup vertices data (and buffer(s)) and configure vertex attributes (kept from original)
-    GLfloat vertices[] = {
-        // positions        // texture coords
-        0.5f, 0.5f, 0.0f, 1.0f, 1.0f, // top right
-        0.5f, -0.5f, 0.0f, 1.0f, 0.0f, // bottom right
-        -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, // bottom left
-        -0.5f, 0.5f, 0.0f, 0.0f, 1.0f // top left
-    };
-    GLuint indices[] = {
-        0, 1, 3, // first triangle
-        1, 2, 3 // second triangle
-    };
-
-    GLuint VBO, VAO, EBO;
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-    glGenBuffers(1, &EBO);
-
-    // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
-    glBindVertexArray(VAO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-    // position attribute (using layout (location = 0))
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void *) 0);
-    glEnableVertexAttribArray(0);
-
-    // tex coords attribute (using layout (location = 1))
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void *) (3 * sizeof(GLfloat)));
-    glEnableVertexAttribArray(1);
-
-    // unbind the VAO
-    glBindVertexArray(0);
+    // setup cube mesh
+    Mesh cubeMesh = loadCube();
+    if (!cubeMesh.setupMesh()) {
+        return -1; // Exit application if cube loading failed
+    }
 
     // initialize matrices (kept from original)
     glm::mat4 modelMatrix = glm::mat4(1.0f);
@@ -114,13 +158,14 @@ int main(void) {
     // Use the GLWindow method to check if the window should close
     while (!window.shouldClose()) {
         // Clear the color buffer using the GLWindow clear method
-        window.clear(0.16f, 0.24f, 0.32f, 1.0f, GL_COLOR_BUFFER_BIT); // Or GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT
+        window.clear(0.16f, 0.24f, 0.32f, 1.0f, GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // calculate new rotation (kept from original)
-        modelMatrix = glm::rotate(modelMatrix, glm::radians(1.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+        modelMatrix = glm::rotate(modelMatrix, glm::radians(1.0f), glm::vec3(1.0f, 1.0f, 1.0f));
         
         // Activate the shader program using the Shader class
         cubeShader.use();
+        cubeShader.setInt("uTexture1", 0); // Tell the shader's uTexture1 uniform to use texture unit 0
 
         // update matrix uniforms using the Shader class set methods
         cubeShader.setMat4("uModel", modelMatrix);
@@ -130,9 +175,8 @@ int main(void) {
         // Active texture
         cubeTexture.bind(0);
 
-        // bind VAO
-        glBindVertexArray(VAO);
-        glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(int), GL_UNSIGNED_INT, nullptr);
+        // Ask cube to draw
+        cubeMesh.draw();
 
         // Limit the frame rate using the FPSLimiter object
         fpsLimiter.limit();
@@ -143,11 +187,6 @@ int main(void) {
         // Poll for and process events using the GLWindow method
         window.pollEvents();
     }
-
-    // optional: de-allocate all resources once they've outlived their purpose: (kept from original)
-    // ------------------------------------------------------------------------
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
 
     return 0;
 }

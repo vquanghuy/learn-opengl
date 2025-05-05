@@ -119,6 +119,9 @@ bool GLWindow::create(int width, int height, const std::string& title, int glMaj
               << GLAD_VERSION_MAJOR(version) << "."
               << GLAD_VERSION_MINOR(version)
               << std::endl;
+    
+    // 4. Enable depth test
+    glEnable(GL_DEPTH_TEST);
 
     gladLoaded = true; // Mark GLAD as successfully loaded
 
@@ -166,7 +169,7 @@ void GLWindow::clear(float r, float g, float b, float a, GLbitfield mask)
     if (window != nullptr) // Only clear if window is valid
     {
         glClearColor(r, g, b, a); // Set the clear color
-        glClear(mask);          // Clear the specified buffers
+        glClear(mask);
     }
 }
 
