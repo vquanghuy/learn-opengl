@@ -68,4 +68,7 @@ My implementations include personal modifications and adaptations for the macOS 
 
 <img width="400" alt="tut-03-transformation" src="https://github.com/user-attachments/assets/c0be0457-2635-4677-8287-0c5e0c114c77" />
 
+<img width="400" alt="tut-04-camera" src="https://github.com/user-attachments/assets/9fafe378-3481-4584-8674-4de2f1c6c7fa" />
+
+
 
