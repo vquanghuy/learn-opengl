@@ -101,17 +101,17 @@ void processKeyInput(GLWindow* window, Camera* camera, float deltaTime) {
         window->requestClose(); // Use GLWindow method
     
     // Camera movement input
-    if (window->getKey(GLFW_KEY_W) == GLFW_PRESS) // Use window.getKey()
+    if (window->getKey(GLFW_KEY_W) == GLFW_PRESS)
         camera->processKeyboard(FORWARD, deltaTime);
-    if (window->getKey(GLFW_KEY_S) == GLFW_PRESS) // Use window.getKey()
+    if (window->getKey(GLFW_KEY_S) == GLFW_PRESS)
         camera->processKeyboard(BACKWARD, deltaTime);
-    if (window->getKey(GLFW_KEY_A) == GLFW_PRESS) // Use window.getKey()
+    if (window->getKey(GLFW_KEY_A) == GLFW_PRESS)
         camera->processKeyboard(LEFT, deltaTime);
-    if (window->getKey(GLFW_KEY_D) == GLFW_PRESS) // Use window.getKey()
+    if (window->getKey(GLFW_KEY_D) == GLFW_PRESS)
         camera->processKeyboard(RIGHT, deltaTime);
-    if (window->getKey(GLFW_KEY_SPACE) == GLFW_PRESS) // Use window.getKey()
+    if (window->getKey(GLFW_KEY_Q) == GLFW_PRESS)
         camera->processKeyboard(UP, deltaTime);
-    if (window->getKey(GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) // Use window.getKey()
+    if (window->getKey(GLFW_KEY_E) == GLFW_PRESS)
         camera->processKeyboard(DOWN, deltaTime);
 }
 
