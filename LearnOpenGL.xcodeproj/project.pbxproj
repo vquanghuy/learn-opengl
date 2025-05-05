@@ -46,7 +46,7 @@
 		69CD42D42DC8E31C0028D52C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
-			dstPath = "Assets/05-ObjectLoader";
+			dstPath = "Assets/05-Skybox";
 			dstSubfolderSpec = 16;
 			files = (
 			);
@@ -79,7 +79,7 @@
 		694ECB202DBD117400E490C4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		694ECB222DBD11C600E490C4 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		69AE30112DBE15160064AF59 /* 03-Transformation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "03-Transformation"; sourceTree = BUILT_PRODUCTS_DIR; };
-		69CD42D82DC8E31C0028D52C /* 05-ObjectLoader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "05-ObjectLoader"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69CD42D82DC8E31C0028D52C /* 05-Skybox */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "05-Skybox"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FAA3AD2DBCE00D00A95B21 /* 01-Triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "01-Triangle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FAA3C32DBCE33000A95B21 /* 02-Texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "02-Texture"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FAA3CE2DBCE4AE00A95B21 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -145,25 +145,25 @@
 			);
 			target = 69AE30072DBE15160064AF59 /* 03-Transformation */;
 		};
-		69CD42F32DC8E35C0028D52C /* Exceptions for "Tutorials" folder in "05-ObjectLoader" target */ = {
+		69CD42F32DC8E35C0028D52C /* Exceptions for "Tutorials" folder in "05-Skybox" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				"05-ObjectLoader/Camera.cpp",
-				"05-ObjectLoader/FPSLimiter.cpp",
-				"05-ObjectLoader/GLWindow.cpp",
-				"05-ObjectLoader/main.cpp",
-				"05-ObjectLoader/Mesh.cpp",
-				"05-ObjectLoader/Shader.cpp",
-				"05-ObjectLoader/Texture.cpp",
+				"05-Skybox/Camera.cpp",
+				"05-Skybox/FPSLimiter.cpp",
+				"05-Skybox/GLWindow.cpp",
+				"05-Skybox/main.cpp",
+				"05-Skybox/Mesh.cpp",
+				"05-Skybox/Shader.cpp",
+				"05-Skybox/Texture.cpp",
 			);
-			target = 69CD42CE2DC8E31C0028D52C /* 05-ObjectLoader */;
+			target = 69CD42CE2DC8E31C0028D52C /* 05-Skybox */;
 		};
-		69CD42F62DC8E3840028D52C /* Exceptions for "Shared" folder in "05-ObjectLoader" target */ = {
+		69CD42F62DC8E3840028D52C /* Exceptions for "Shared" folder in "05-Skybox" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				gl.c,
 			);
-			target = 69CD42CE2DC8E31C0028D52C /* 05-ObjectLoader */;
+			target = 69CD42CE2DC8E31C0028D52C /* 05-Skybox */;
 		};
 		69FAA3BE2DBCE30800A95B21 /* Exceptions for "Tutorials" folder in "01-Triangle" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -227,13 +227,13 @@
 				"01-Triangle/triangle.vert.glsl",
 			);
 		};
-		69CD42FD2DC8E4340028D52C /* Exceptions for "Assets" folder in "Copy Files" phase from "05-ObjectLoader" target */ = {
+		69CD42FD2DC8E4340028D52C /* Exceptions for "Assets" folder in "Copy Files" phase from "05-Skybox" target */ = {
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = 69CD42D42DC8E31C0028D52C /* CopyFiles */;
 			membershipExceptions = (
-				"05-ObjectLoader/cube.frag.glsl",
-				"05-ObjectLoader/cube.jpg",
-				"05-ObjectLoader/cube.vert.glsl",
+				"05-Skybox/cube.frag.glsl",
+				"05-Skybox/cube.jpg",
+				"05-Skybox/cube.vert.glsl",
 			);
 		};
 /* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
@@ -246,7 +246,7 @@
 				69AE2FFC2DBDE1BF0064AF59 /* Exceptions for "Assets" folder in "Copy Files" phase from "02-Texture" target */,
 				69AE30152DBE153B0064AF59 /* Exceptions for "Assets" folder in "Copy Files" phase from "03-Transformation" target */,
 				690C18472DC716A700218939 /* Exceptions for "Assets" folder in "Copy Files" phase from "04-Camera" target */,
-				69CD42FD2DC8E4340028D52C /* Exceptions for "Assets" folder in "Copy Files" phase from "05-ObjectLoader" target */,
+				69CD42FD2DC8E4340028D52C /* Exceptions for "Assets" folder in "Copy Files" phase from "05-Skybox" target */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -258,7 +258,7 @@
 				694ECB1D2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "02-Texture" target */,
 				69AE301E2DBE15A60064AF59 /* Exceptions for "Shared" folder in "03-Transformation" target */,
 				690C18282DC63ED600218939 /* Exceptions for "Shared" folder in "04-Camera" target */,
-				69CD42F62DC8E3840028D52C /* Exceptions for "Shared" folder in "05-ObjectLoader" target */,
+				69CD42F62DC8E3840028D52C /* Exceptions for "Shared" folder in "05-Skybox" target */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -272,7 +272,7 @@
 				69AE301C2DBE15A60064AF59 /* Exceptions for "Tutorials" folder in "03-Transformation" target */,
 				69AE301D2DBE15A60064AF59 /* Exceptions for "Tutorials" folder in "Compile Sources" phase from "03-Transformation" target */,
 				690C18262DC63EC100218939 /* Exceptions for "Tutorials" folder in "04-Camera" target */,
-				69CD42F32DC8E35C0028D52C /* Exceptions for "Tutorials" folder in "05-ObjectLoader" target */,
+				69CD42F32DC8E35C0028D52C /* Exceptions for "Tutorials" folder in "05-Skybox" target */,
 			);
 			path = Tutorials;
 			sourceTree = "<group>";
@@ -363,7 +363,7 @@
 				69FAA3C32DBCE33000A95B21 /* 02-Texture */,
 				69AE30112DBE15160064AF59 /* 03-Transformation */,
 				690C18242DC63EA900218939 /* 04-Camera */,
-				69CD42D82DC8E31C0028D52C /* 05-ObjectLoader */,
+				69CD42D82DC8E31C0028D52C /* 05-Skybox */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -415,9 +415,9 @@
 			productReference = 69AE30112DBE15160064AF59 /* 03-Transformation */;
 			productType = "com.apple.product-type.tool";
 		};
-		69CD42CE2DC8E31C0028D52C /* 05-ObjectLoader */ = {
+		69CD42CE2DC8E31C0028D52C /* 05-Skybox */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 69CD42D52DC8E31C0028D52C /* Build configuration list for PBXNativeTarget "05-ObjectLoader" */;
+			buildConfigurationList = 69CD42D52DC8E31C0028D52C /* Build configuration list for PBXNativeTarget "05-Skybox" */;
 			buildPhases = (
 				69CD42CF2DC8E31C0028D52C /* Sources */,
 				69CD42D02DC8E31C0028D52C /* Frameworks */,
@@ -430,11 +430,11 @@
 			fileSystemSynchronizedGroups = (
 				69CD0AD42DBD9B4700557758 /* Assets */,
 			);
-			name = "05-ObjectLoader";
+			name = "05-Skybox";
 			packageProductDependencies = (
 			);
 			productName = "02-Texture";
-			productReference = 69CD42D82DC8E31C0028D52C /* 05-ObjectLoader */;
+			productReference = 69CD42D82DC8E31C0028D52C /* 05-Skybox */;
 			productType = "com.apple.product-type.tool";
 		};
 		69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */ = {
@@ -516,7 +516,7 @@
 				69FAA3C22DBCE33000A95B21 /* 02-Texture */,
 				69AE30072DBE15160064AF59 /* 03-Transformation */,
 				690C181A2DC63EA900218939 /* 04-Camera */,
-				69CD42CE2DC8E31C0028D52C /* 05-ObjectLoader */,
+				69CD42CE2DC8E31C0028D52C /* 05-Skybox */,
 			);
 		};
 /* End PBXProject section */
@@ -877,7 +877,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		69CD42D52DC8E31C0028D52C /* Build configuration list for PBXNativeTarget "05-ObjectLoader" */ = {
+		69CD42D52DC8E31C0028D52C /* Build configuration list for PBXNativeTarget "05-Skybox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				69CD42D62DC8E31C0028D52C /* Debug */,

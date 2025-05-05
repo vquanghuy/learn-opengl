@@ -123,7 +123,7 @@ int main(void) {
     GLWindow window;
     
     // Initialize the window and OpenGL context
-    if (!window.create(WINDOW_WIDTH, WINDOW_HEIGHT, "05 - Object Loader", 4, 1)) {
+    if (!window.create(WINDOW_WIDTH, WINDOW_HEIGHT, "05 - Skybox", 4, 1)) {
         return -1; // Exit application if window creation failed
     }
     
