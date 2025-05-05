@@ -12,6 +12,9 @@ public:
     // Method to call each frame to limit the frame rate.
     void limit();
     
+    // Get the delta time calculated during the last call to limit().
+    float getDeltaTime() const;
+    
     // Set a new target FPS.
     void setTargetFPS(int targetFPS);
     
@@ -22,6 +25,7 @@ private:
     int targetFPS;
     double targetFrameTime;
     std::chrono::high_resolution_clock::time_point lastTime;
+    float deltaTime;
 };
 
 #endif // FPS_LIMITER_H

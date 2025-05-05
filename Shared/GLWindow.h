@@ -32,6 +32,9 @@ public:
 
     // Check if the window should close.
     bool shouldClose() const;
+    
+    // Request the window to close (sets the close flag).
+    void requestClose() const;
 
     // Swap the front and back buffers.
     void swapBuffers();
@@ -50,16 +53,15 @@ public:
     int getHeight() const { return height; }
     float getAspectRatio() const { return static_cast<float>(width) / height; }
 
-    // Set the framebuffer size callback
-    void setFramebufferSizeCallback(GLFWframebuffersizefun callback);
-
     // Clear the color and/or depth buffers
     void clear(float r, float g, float b, float a, GLbitfield mask = GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // --- Static helper for the debugger sleep workaround ---
     // Call this at the very beginning of your main function, before creating any GLWindow objects.
     static void debuggerSleepWorkaround(int seconds = 1);
-
+    
+    // Get the last reported state of a keyboard key.
+    int getKey(int key) const;
 
 private:
     GLFWwindow* window = nullptr; // The GLFW window pointer
@@ -70,11 +72,6 @@ private:
 
     // Utility function for reporting errors
     void logError(const std::string& message) const;
-
-    // Callback for framebuffer size changes (GLFW requires a static or global function)
-    // We'll need to store a pointer to the GLWindow instance to handle this.
-    // Alternatively, we can use GLFW's setUserPointer and a static callback.
-    static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
 };
 
 #endif // GLWINDOW_H

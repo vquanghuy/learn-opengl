@@ -15,6 +15,7 @@
 #include "Shader.h"
 #include "Texture.h"
 #include "Mesh.h"
+#include "Camera.h"
 
 #define WINDOW_WIDTH 640
 #define WINDOW_HEIGHT 480
@@ -94,14 +95,25 @@ Mesh loadCube() {
     return Mesh(cubeVertices);
 }
 
-// Framebuffer size callback (can be a lambda in main or a separate function)
-// This will be called by GLFW when the window is resized.
-// The GLWindow::framebufferSizeCallback handles updating the viewport.
-void framebufferSizeCallback(GLFWwindow* window, int width, int height) {
-    // You might add other resize-related logic here if needed,
-    // but glViewport is already handled by the static callback in GLWindow.cpp
+void processKeyInput(GLWindow* window, Camera* camera, float deltaTime) {
+    // Close window on Escape key press
+    if (window->getKey(GLFW_KEY_ESCAPE) == GLFW_PRESS) // Use window.getKey()
+        window->requestClose(); // Use GLWindow method
+    
+    // Camera movement input
+    if (window->getKey(GLFW_KEY_W) == GLFW_PRESS) // Use window.getKey()
+        camera->processKeyboard(FORWARD, deltaTime);
+    if (window->getKey(GLFW_KEY_S) == GLFW_PRESS) // Use window.getKey()
+        camera->processKeyboard(BACKWARD, deltaTime);
+    if (window->getKey(GLFW_KEY_A) == GLFW_PRESS) // Use window.getKey()
+        camera->processKeyboard(LEFT, deltaTime);
+    if (window->getKey(GLFW_KEY_D) == GLFW_PRESS) // Use window.getKey()
+        camera->processKeyboard(RIGHT, deltaTime);
+    if (window->getKey(GLFW_KEY_SPACE) == GLFW_PRESS) // Use window.getKey()
+        camera->processKeyboard(UP, deltaTime);
+    if (window->getKey(GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) // Use window.getKey()
+        camera->processKeyboard(DOWN, deltaTime);
 }
-
 
 int main(void) {
     // Apply the debugger workaround BEFORE creating the window
@@ -115,8 +127,11 @@ int main(void) {
         return -1; // Exit application if window creation failed
     }
     
-    // Set the framebuffer size callback using the GLWindow method
-    window.setFramebufferSizeCallback(framebufferSizeCallback);
+    // Set window callback
+    
+    
+    // Initialize camera
+    Camera mainCamera(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f);
     
     // Load shaders using your Shader class
     Shader cubeShader("./Assets/04-Camera/cube.vert.glsl", "./Assets/04-Camera/cube.frag.glsl");
@@ -154,8 +169,6 @@ int main(void) {
         }
     }
     
-    glm::mat4 viewMatrix = glm::mat4(1.0f);
-    
     float fovDegrees = 45.0f; // Field of View in degrees
     // Get aspect ratio from the window object
     float aspectRatio = window.getAspectRatio();
@@ -170,6 +183,9 @@ int main(void) {
     /* Loop until the user closes the window */
     // Use the GLWindow method to check if the window should close
     while (!window.shouldClose()) {
+        // Process key input
+        processKeyInput(&window, &mainCamera, fpsLimiter.getDeltaTime());
+        
         // Clear the color buffer using the GLWindow clear method
         window.clear(0.16f, 0.24f, 0.32f, 1.0f, GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
@@ -177,7 +193,9 @@ int main(void) {
         cubeShader.use();
         cubeShader.setInt("uTexture1", 0); // Tell the shader's uTexture1 uniform to use texture unit 0
         
-        // update matrix uniforms using the Shader class set methods
+        // Update matrix uniforms using the Shader class set methods
+        // Get the View matrix from the Camera
+        glm::mat4 viewMatrix = mainCamera.getViewMatrix();
         cubeShader.setMat4("uView", viewMatrix);
         cubeShader.setMat4("uProjection", projectionMatrix);
         

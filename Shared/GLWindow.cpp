@@ -74,13 +74,16 @@ bool GLWindow::create(int width, int height, const std::string& title, int glMaj
         return false; // Indicate failure
     }
 
-    // Configure GLFW (e.g., OpenGL version, core profile)
+    // Configure GLFW OpenGL version
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, glMajorVersion);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, glMinorVersion);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 #ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // Required on macOS
 #endif
+    
+    // Disable window resize
+    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
     // 2. Create a windowed mode window and its OpenGL context
     window = glfwCreateWindow(this->width, this->height, this->title.c_str(), NULL, NULL);
@@ -96,10 +99,6 @@ bool GLWindow::create(int width, int height, const std::string& title, int glMaj
 
     // Set the user pointer to this instance for callbacks
     glfwSetWindowUserPointer(window, this);
-
-    // Set the static framebuffer size callback
-    glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
-
 
     // 3. Initialize GLAD (load OpenGL function pointers)
     // This must be done AFTER the OpenGL context has been made current.
@@ -139,6 +138,15 @@ bool GLWindow::shouldClose() const
     return true; // If window is invalid, it should be considered closed
 }
 
+// Request the window to close (sets the close flag).
+void GLWindow::requestClose() const
+{
+    if (window != nullptr)
+    {
+        glfwSetWindowShouldClose(window, true);
+    }
+}
+
 // Swap the front and back buffers.
 void GLWindow::swapBuffers()
 {
@@ -154,13 +162,12 @@ void GLWindow::pollEvents()
     glfwPollEvents();
 }
 
-// Set the framebuffer size callback
-void GLWindow::setFramebufferSizeCallback(GLFWframebuffersizefun callback)
-{
-    if (window != nullptr)
-    {
-        glfwSetFramebufferSizeCallback(window, callback);
+// Get the last reported state of a keyboard key.
+int GLWindow::getKey(int key) const {
+    if (window != nullptr) {
+        return glfwGetKey(window, key);
     }
+    return GLFW_RELEASE; // Return release state if window is invalid
 }
 
 // Clear the color and/or depth buffers
@@ -180,22 +187,7 @@ void GLWindow::logError(const std::string& message) const
     std::cerr << "GLWindow ERROR: " << message << std::endl;
 }
 
-// Static framebuffer size callback implementation
-void GLWindow::framebufferSizeCallback(GLFWwindow* window, int width, int height)
-{
-    // Retrieve the GLWindow instance using the user pointer
-    GLWindow* glWindow = static_cast<GLWindow*>(glfwGetWindowUserPointer(window));
-    if (glWindow)
-    {
-        // Update the stored dimensions (optional, but good practice)
-        glWindow->width = width;
-        glWindow->height = height;
-        // Call the OpenGL function to update the viewport
-        glViewport(0, 0, width, height);
-    }
-}
-
-// --- Static helper for the debugger sleep workaround ---
+// Static helper for the debugger sleep workaround
 void GLWindow::debuggerSleepWorkaround(int seconds)
 {
 #ifdef __APPLE__
