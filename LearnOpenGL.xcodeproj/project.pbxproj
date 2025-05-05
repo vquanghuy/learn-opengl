@@ -19,6 +19,9 @@
 		69AE300A2DBE15160064AF59 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB202DBD117400E490C4 /* Cocoa.framework */; };
 		69AE300B2DBE15160064AF59 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB222DBD11C600E490C4 /* IOKit.framework */; };
 		69AE300C2DBE15160064AF59 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB172DBD0D0800E490C4 /* libglfw3.a */; };
+		69CD42D12DC8E31C0028D52C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB202DBD117400E490C4 /* Cocoa.framework */; };
+		69CD42D22DC8E31C0028D52C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB222DBD11C600E490C4 /* IOKit.framework */; };
+		69CD42D32DC8E31C0028D52C /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694ECB172DBD0D0800E490C4 /* libglfw3.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +38,15 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "Assets/03-Transformation";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69CD42D42DC8E31C0028D52C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "Assets/05-ObjectLoader";
 			dstSubfolderSpec = 16;
 			files = (
 			);
@@ -67,6 +79,7 @@
 		694ECB202DBD117400E490C4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		694ECB222DBD11C600E490C4 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		69AE30112DBE15160064AF59 /* 03-Transformation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "03-Transformation"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69CD42D82DC8E31C0028D52C /* 05-ObjectLoader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "05-ObjectLoader"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FAA3AD2DBCE00D00A95B21 /* 01-Triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "01-Triangle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FAA3C32DBCE33000A95B21 /* 02-Texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "02-Texture"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FAA3CE2DBCE4AE00A95B21 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -132,6 +145,26 @@
 			);
 			target = 69AE30072DBE15160064AF59 /* 03-Transformation */;
 		};
+		69CD42F32DC8E35C0028D52C /* Exceptions for "Tutorials" folder in "05-ObjectLoader" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"05-ObjectLoader/Camera.cpp",
+				"05-ObjectLoader/FPSLimiter.cpp",
+				"05-ObjectLoader/GLWindow.cpp",
+				"05-ObjectLoader/main.cpp",
+				"05-ObjectLoader/Mesh.cpp",
+				"05-ObjectLoader/Shader.cpp",
+				"05-ObjectLoader/Texture.cpp",
+			);
+			target = 69CD42CE2DC8E31C0028D52C /* 05-ObjectLoader */;
+		};
+		69CD42F62DC8E3840028D52C /* Exceptions for "Shared" folder in "05-ObjectLoader" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				gl.c,
+			);
+			target = 69CD42CE2DC8E31C0028D52C /* 05-ObjectLoader */;
+		};
 		69FAA3BE2DBCE30800A95B21 /* Exceptions for "Tutorials" folder in "01-Triangle" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -194,6 +227,15 @@
 				"01-Triangle/triangle.vert.glsl",
 			);
 		};
+		69CD42FD2DC8E4340028D52C /* Exceptions for "Assets" folder in "Copy Files" phase from "05-ObjectLoader" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 69CD42D42DC8E31C0028D52C /* CopyFiles */;
+			membershipExceptions = (
+				"05-ObjectLoader/cube.frag.glsl",
+				"05-ObjectLoader/cube.jpg",
+				"05-ObjectLoader/cube.vert.glsl",
+			);
+		};
 /* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -204,6 +246,7 @@
 				69AE2FFC2DBDE1BF0064AF59 /* Exceptions for "Assets" folder in "Copy Files" phase from "02-Texture" target */,
 				69AE30152DBE153B0064AF59 /* Exceptions for "Assets" folder in "Copy Files" phase from "03-Transformation" target */,
 				690C18472DC716A700218939 /* Exceptions for "Assets" folder in "Copy Files" phase from "04-Camera" target */,
+				69CD42FD2DC8E4340028D52C /* Exceptions for "Assets" folder in "Copy Files" phase from "05-ObjectLoader" target */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -215,6 +258,7 @@
 				694ECB1D2DBD0D9200E490C4 /* Exceptions for "Shared" folder in "02-Texture" target */,
 				69AE301E2DBE15A60064AF59 /* Exceptions for "Shared" folder in "03-Transformation" target */,
 				690C18282DC63ED600218939 /* Exceptions for "Shared" folder in "04-Camera" target */,
+				69CD42F62DC8E3840028D52C /* Exceptions for "Shared" folder in "05-ObjectLoader" target */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -228,6 +272,7 @@
 				69AE301C2DBE15A60064AF59 /* Exceptions for "Tutorials" folder in "03-Transformation" target */,
 				69AE301D2DBE15A60064AF59 /* Exceptions for "Tutorials" folder in "Compile Sources" phase from "03-Transformation" target */,
 				690C18262DC63EC100218939 /* Exceptions for "Tutorials" folder in "04-Camera" target */,
+				69CD42F32DC8E35C0028D52C /* Exceptions for "Tutorials" folder in "05-ObjectLoader" target */,
 			);
 			path = Tutorials;
 			sourceTree = "<group>";
@@ -252,6 +297,16 @@
 				69AE300A2DBE15160064AF59 /* Cocoa.framework in Frameworks */,
 				69AE300B2DBE15160064AF59 /* IOKit.framework in Frameworks */,
 				69AE300C2DBE15160064AF59 /* libglfw3.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69CD42D02DC8E31C0028D52C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69CD42D12DC8E31C0028D52C /* Cocoa.framework in Frameworks */,
+				69CD42D22DC8E31C0028D52C /* IOKit.framework in Frameworks */,
+				69CD42D32DC8E31C0028D52C /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +363,7 @@
 				69FAA3C32DBCE33000A95B21 /* 02-Texture */,
 				69AE30112DBE15160064AF59 /* 03-Transformation */,
 				690C18242DC63EA900218939 /* 04-Camera */,
+				69CD42D82DC8E31C0028D52C /* 05-ObjectLoader */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -357,6 +413,28 @@
 			);
 			productName = "02-Texture";
 			productReference = 69AE30112DBE15160064AF59 /* 03-Transformation */;
+			productType = "com.apple.product-type.tool";
+		};
+		69CD42CE2DC8E31C0028D52C /* 05-ObjectLoader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69CD42D52DC8E31C0028D52C /* Build configuration list for PBXNativeTarget "05-ObjectLoader" */;
+			buildPhases = (
+				69CD42CF2DC8E31C0028D52C /* Sources */,
+				69CD42D02DC8E31C0028D52C /* Frameworks */,
+				69CD42D42DC8E31C0028D52C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				69CD0AD42DBD9B4700557758 /* Assets */,
+			);
+			name = "05-ObjectLoader";
+			packageProductDependencies = (
+			);
+			productName = "02-Texture";
+			productReference = 69CD42D82DC8E31C0028D52C /* 05-ObjectLoader */;
 			productType = "com.apple.product-type.tool";
 		};
 		69FAA3AC2DBCE00D00A95B21 /* 01-Triangle */ = {
@@ -438,6 +516,7 @@
 				69FAA3C22DBCE33000A95B21 /* 02-Texture */,
 				69AE30072DBE15160064AF59 /* 03-Transformation */,
 				690C181A2DC63EA900218939 /* 04-Camera */,
+				69CD42CE2DC8E31C0028D52C /* 05-ObjectLoader */,
 			);
 		};
 /* End PBXProject section */
@@ -451,6 +530,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		69AE30082DBE15160064AF59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69CD42CF2DC8E31C0028D52C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -526,6 +612,40 @@
 			name = Debug;
 		};
 		69AE30102DBE15160064AF59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/glfw/lib-arm64",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+		69CD42D62DC8E31C0028D52C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/glfw/lib-arm64",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		69CD42D72DC8E31C0028D52C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -753,6 +873,15 @@
 			buildConfigurations = (
 				69AE300F2DBE15160064AF59 /* Debug */,
 				69AE30102DBE15160064AF59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69CD42D52DC8E31C0028D52C /* Build configuration list for PBXNativeTarget "05-ObjectLoader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69CD42D62DC8E31C0028D52C /* Debug */,
+				69CD42D72DC8E31C0028D52C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
