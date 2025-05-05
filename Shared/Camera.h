@@ -36,11 +36,11 @@ public:
     glm::vec3 right;
     glm::vec3 worldUp;
 
-    // Euler Angles (renamed to camel case)
+    // Euler Angles
     float yaw;
     float pitch;
 
-    // Camera options (renamed to camel case)
+    // Camera options
     float movementSpeed;
     float mouseSensitivity;
     float zoom;

@@ -21,7 +21,7 @@ GLWindow::~GLWindow()
 // Move constructor
 GLWindow::GLWindow(GLWindow&& other) noexcept
     : window(other.window), width(other.width), height(other.height),
-      title(std::move(other.title)), gladLoaded(other.gladLoaded)
+      title(std::move(other.title)), gladLoaded(other.gladLoaded), mouseCallbackFunc(std::move(other.mouseCallbackFunc))
 {
     other.window = nullptr; // Set other's window pointer to null to prevent double destruction
     // Update the user pointer in the moved window
@@ -81,9 +81,6 @@ bool GLWindow::create(int width, int height, const std::string& title, int glMaj
 #ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // Required on macOS
 #endif
-    
-    // Disable window resize
-    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
     // 2. Create a windowed mode window and its OpenGL context
     window = glfwCreateWindow(this->width, this->height, this->title.c_str(), NULL, NULL);
@@ -99,6 +96,15 @@ bool GLWindow::create(int width, int height, const std::string& title, int glMaj
 
     // Set the user pointer to this instance for callbacks
     glfwSetWindowUserPointer(window, this);
+    
+    // Set the static GLFW callbacks
+    glfwSetCursorPosCallback(window, mouseCallback);
+    
+    // Disable window resize
+    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+    
+    // Capture mouse
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     // 3. Initialize GLAD (load OpenGL function pointers)
     // This must be done AFTER the OpenGL context has been made current.
@@ -187,6 +193,12 @@ void GLWindow::logError(const std::string& message) const
     std::cerr << "GLWindow ERROR: " << message << std::endl;
 }
 
+// Set the cursor position callback (user-defined simplified signature)
+void GLWindow::setMouseCallback(std::function<void(double, double)> callback)
+{
+    mouseCallbackFunc = callback; // Store the user's callback
+}
+
 // Static helper for the debugger sleep workaround
 void GLWindow::debuggerSleepWorkaround(int seconds)
 {
@@ -195,5 +207,17 @@ void GLWindow::debuggerSleepWorkaround(int seconds)
     std::this_thread::sleep_for(std::chrono::seconds(seconds));
     std::cout << "Resuming execution." << std::endl;
 #endif
+}
+
+// Static mouse callback implementation (called by GLFW)
+void GLWindow::mouseCallback(GLFWwindow* window, double xposIn, double yposIn)
+{
+    // Retrieve the GLWindow instance using the user pointer
+    GLWindow* glWindow = static_cast<GLWindow*>(glfwGetWindowUserPointer(window));
+    if (glWindow && glWindow->mouseCallbackFunc) // Check if GLWindow and user callback are valid
+    {
+        // Call the user's stored callback function
+        glWindow->mouseCallbackFunc(xposIn, yposIn);
+    }
 }
 

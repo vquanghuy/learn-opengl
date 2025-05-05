@@ -127,11 +127,31 @@ int main(void) {
         return -1; // Exit application if window creation failed
     }
     
-    // Set window callback
-    
-    
     // Initialize camera
     Camera mainCamera(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f);
+    
+    // --- Set GLFW Input Callbacks using GLWindow methods and lambdas ---
+    // Set the mouse callback using the GLWindow method and a lambda
+    window.setMouseCallback([&mainCamera](double xpos, double ypos) {
+        static bool firstMouse = true;
+        static float lastX = 0.0f;
+        static float lastY = 0.0f;
+        
+        if (firstMouse)
+        {
+            lastX = static_cast<float>(xpos);
+            lastY = static_cast<float>(ypos);
+            firstMouse = false;
+        }
+        
+        float xoffset = static_cast<float>(xpos) - lastX;
+        float yoffset = lastY - static_cast<float>(ypos); // Reversed since y-coordinates go from bottom to top
+        
+        lastX = static_cast<float>(xpos);
+        lastY = static_cast<float>(ypos);
+        
+        mainCamera.processMouseMovement(xoffset, yoffset);
+    });
     
     // Load shaders using your Shader class
     Shader cubeShader("./Assets/04-Camera/cube.vert.glsl", "./Assets/04-Camera/cube.frag.glsl");

@@ -62,6 +62,9 @@ public:
     
     // Get the last reported state of a keyboard key.
     int getKey(int key) const;
+    
+    // Set the cursor position callback (user-defined simplified signature)
+    void setMouseCallback(std::function<void(double, double)> callback);
 
 private:
     GLFWwindow* window = nullptr; // The GLFW window pointer
@@ -69,9 +72,15 @@ private:
     int height = 0;               // Initialize to 0
     std::string title;
     bool gladLoaded = false;
+    
+    // Callback functions with simplified signatures
+    std::function<void(double, double)> mouseCallbackFunc;
 
     // Utility function for reporting errors
     void logError(const std::string& message) const;
+    
+    // Static GLFW callbacks (receive GLFWwindow* and raw input)
+    static void mouseCallback(GLFWwindow* window, double xposIn, double yposIn);
 };
 
 #endif // GLWINDOW_H
