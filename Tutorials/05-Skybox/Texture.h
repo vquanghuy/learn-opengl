@@ -32,6 +32,9 @@ public:
     // Bind the texture to a specific texture unit.
     // Only safe to call if isValid() is true.
     void bind(GLuint textureUnit = 0) const; // Default to texture unit 0
+    
+    // Unbinds the texture from a specific texture unit
+    void unbind(unsigned int textureUnit = 0) const;
 
     // Check if the texture was loaded and created successfully.
     bool isValid() const { return ID != 0; }

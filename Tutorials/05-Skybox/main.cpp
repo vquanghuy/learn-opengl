@@ -172,6 +172,10 @@ int main(void) {
         return -1; // Exit application if cube loading failed
     }
     
+    // Set mesh shader and texture
+    cubeMesh.setShader(&cubeShader);
+    cubeMesh.addTexture(&cubeTexture);
+    
     // Define Cube Positions in a 10x10x10 Grid
     std::vector<glm::vec3> cubePositions;
     int gridSize = 10;
@@ -209,18 +213,8 @@ int main(void) {
         // Clear the color buffer using the GLWindow clear method
         window.clear(0.16f, 0.24f, 0.32f, 1.0f, GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-        // Activate the shader program using the Shader class
-        cubeShader.use();
-        cubeShader.setInt("uTexture1", 0); // Tell the shader's uTexture1 uniform to use texture unit 0
-        
-        // Update matrix uniforms using the Shader class set methods
         // Get the View matrix from the Camera
         glm::mat4 viewMatrix = mainCamera.getViewMatrix();
-        cubeShader.setMat4("uView", viewMatrix);
-        cubeShader.setMat4("uProjection", projectionMatrix);
-        
-        // Active texture
-        cubeTexture.bind(0);
         
         // Ask cube to draw
         for (unsigned int i = 0; i < cubePositions.size(); i++)
@@ -230,7 +224,7 @@ int main(void) {
             modelMatrix = glm::translate(modelMatrix, glm::vec3(.0f, .0f, -30.0f));
             cubeShader.setMat4("uModel", modelMatrix);
             
-            cubeMesh.draw();
+            cubeMesh.draw(modelMatrix, viewMatrix, projectionMatrix);
         }
         
         // Limit the frame rate using the FPSLimiter object

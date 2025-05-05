@@ -6,7 +6,7 @@
 
 // Constructor implementation: Simply stores the file path.
 Texture::Texture(const std::string& filePath)
-    : ID(0), filePath(filePath)
+: ID(0), filePath(filePath)
 {
     // No OpenGL or image loading calls here.
     // Image loading and texture creation happen in the load() method.
@@ -23,8 +23,8 @@ Texture::~Texture()
 
 // Move constructor
 Texture::Texture(Texture&& other) noexcept
-    : ID(other.ID), filePath(std::move(other.filePath)),
-      width(other.width), height(other.height), nrChannels(other.nrChannels)
+: ID(other.ID), filePath(std::move(other.filePath)),
+width(other.width), height(other.height), nrChannels(other.nrChannels)
 {
     other.ID = 0; // Set other's ID to 0 to prevent double deletion
     other.width = 0;
@@ -41,14 +41,14 @@ Texture& Texture::operator=(Texture&& other) noexcept
         {
             glDeleteTextures(1, &ID);
         }
-
+        
         // Transfer ownership
         ID = other.ID;
         filePath = std::move(other.filePath);
         width = other.width;
         height = other.height;
         nrChannels = other.nrChannels;
-
+        
         // Set other's state to default
         other.ID = 0;
         other.width = 0;
@@ -67,18 +67,18 @@ bool Texture::load()
         glDeleteTextures(1, &ID);
         ID = 0; // Reset ID
     }
-
+    
     // 1. Load image data using stb_image.h
     // Flip texture vertically because OpenGL expects the first pixel to be at the bottom-left
     stbi_set_flip_vertically_on_load(true);
     unsigned char* data = stbi_load(filePath.c_str(), &width, &height, &nrChannels, 0);
-
+    
     if (!data)
     {
         logError("Failed to load texture image: " + filePath);
         return false; // Indicate failure
     }
-
+    
     // Determine the image format based on the number of channels
     GLenum format;
     if (nrChannels == 1)
@@ -93,29 +93,29 @@ bool Texture::load()
         stbi_image_free(data); // Free image data
         return false; // Indicate failure
     }
-
+    
     // 2. Create OpenGL texture
     glGenTextures(1, &ID); // Generate a texture ID
     glBindTexture(GL_TEXTURE_2D, ID); // Bind the texture
-
+    
     // 3. Set texture wrapping and filtering options
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // Set texture wrapping for S axis
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); // Set texture wrapping for T axis
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR); // Set minification filter
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // Set magnification filter
-
+    
     // 4. Upload image data to the texture
     glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-
+    
     // 5. Generate mipmaps
     glGenerateMipmap(GL_TEXTURE_2D);
-
+    
     // 6. Free image data after uploading to the GPU
     stbi_image_free(data);
-
-    // Unbind the texture (optional, but good practice)
+    
+    // Unbind the texture
     glBindTexture(GL_TEXTURE_2D, 0);
-
+    
     return true; // Indicate success
 }
 
@@ -132,6 +132,14 @@ void Texture::bind(GLuint textureUnit) const
         // Optional: Add a warning if trying to bind an invalid texture
         logError("Attempted to bind an invalid texture.");
     }
+}
+
+void Texture::unbind(unsigned int textureUnit) const
+{
+    // Activate the specified texture unit
+    glActiveTexture(GL_TEXTURE0 + textureUnit);
+    // Unbind the texture from the currently active texture unit
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 // Utility function for reporting errors

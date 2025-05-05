@@ -5,7 +5,7 @@
 #include <vector>    // For storing vertices and indices
 #include <string>    // For error messages
 #include <iostream>  // For error reporting
-#include <glm/glm.hpp> // For glm::vec3, glm::vec2 etc. (if not included by glad/gl.h)
+#include <glm/glm.hpp> // For glm::vec3, glm::vec2 etc.
 
 
 // Define a simple Vertex structure to hold common vertex attributes
@@ -15,6 +15,9 @@ struct Vertex {
     glm::vec3 normal;
     glm::vec2 texCoords;
 };
+
+class Texture;
+class Shader;
 
 class Mesh
 {
@@ -46,7 +49,7 @@ public:
     // Draws using glDrawElements if indices are available, otherwise uses glDrawArrays.
     // Requires the appropriate shader to be used beforehand.
     // Only safe to call if isValid() is true.
-    void draw() const;
+    void draw(const glm::mat4& model, const glm::mat4& view, const glm::mat4& projection) const;
 
     // Check if the mesh was set up successfully (VAO is valid).
     bool isValid() const { return VAO != 0; }
@@ -54,12 +57,19 @@ public:
     // Get the VAO ID (use with caution).
     GLuint getVAO() const { return VAO; }
 
-
+    // Set the shader for this mesh
+    void setShader(Shader* shader);
+    
+    // Add a texture to this mesh
+    void addTexture(Texture* texture);
 private:
     // Mesh Data (stored in the object)
     std::vector<Vertex> vertices;
     std::vector<unsigned int> indices;
-    // std::vector<TextureInfo> textures; // If handling textures
+    
+    // Poiters to textures and shader used for this mesh
+    Shader* shader;
+    std::vector<Texture*> textures;
 
     // OpenGL Render Data (generated in setupMesh)
     GLuint VAO = 0; // Vertex Array Object
