@@ -17,8 +17,8 @@
 #include "Mesh.h"
 #include "Camera.h"
 
-#define WINDOW_WIDTH 640
-#define WINDOW_HEIGHT 480
+#define WINDOW_WIDTH 1024
+#define WINDOW_HEIGHT 768
 
 Mesh loadCube() {
     float cubeRawVertices[] = {
@@ -222,7 +222,6 @@ int main(void) {
             glm::mat4 modelMatrix = glm::mat4(1.0f); // Start with identity
             modelMatrix = glm::translate(modelMatrix, cubePositions[i]);
             modelMatrix = glm::translate(modelMatrix, glm::vec3(.0f, .0f, -30.0f));
-            cubeShader.setMat4("uModel", modelMatrix);
             
             cubeMesh.draw(modelMatrix, viewMatrix, projectionMatrix);
         }
