@@ -158,9 +158,9 @@
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
 			buildPhase = 690C18202DC63EA900218939 /* CopyFiles */;
 			membershipExceptions = (
-				"04-Camera/crate1.jpg",
-				"04-Camera/rectangle.frag.glsl",
-				"04-Camera/rectangle.vert.glsl",
+				"04-Camera/cube.frag.glsl",
+				"04-Camera/cube.jpg",
+				"04-Camera/cube.vert.glsl",
 			);
 		};
 		69AE2FF82DBDE1180064AF59 /* Exceptions for "Tutorials" folder in "Compile Sources" phase from "02-Texture" target */ = {

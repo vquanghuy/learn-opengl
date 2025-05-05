@@ -119,14 +119,14 @@ int main(void) {
     window.setFramebufferSizeCallback(framebufferSizeCallback);
     
     // Load shaders using your Shader class
-    Shader cubeShader("./Assets/04-Camera/rectangle.vert.glsl", "./Assets/04-Camera/rectangle.frag.glsl");
+    Shader cubeShader("./Assets/04-Camera/cube.vert.glsl", "./Assets/04-Camera/cube.frag.glsl");
     if (!cubeShader.load()) {
         // Handle shader loading error (message already printed by Shader::load)
         return -1; // Exit application if shader loading failed
     }
     
     // Load texture
-    Texture cubeTexture = Texture("./Assets/04-Camera/crate1.jpg");
+    Texture cubeTexture = Texture("./Assets/04-Camera/cube.jpg");
     if (!cubeTexture.load()) {
         return -1; // Exit application if texture loading failed
     }
