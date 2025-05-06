@@ -36,5 +36,9 @@ private:
     AssetManager() = delete;
 };
 
+// Define macros to get the full paths for assets
+#define SHADER_PATH(filename) AssetManager::getShaderPath(filename)
+#define TEXTURE_PATH(filename) AssetManager::getTexturePath(filename)
+
 #endif // ASSETMANAGER_H
 

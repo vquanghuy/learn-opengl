@@ -160,8 +160,8 @@ int main(void) {
     
     // Load shaders using your Shader class
     Shader cubeShader(
-                      AssetManager::getShaderPath("cube.vert.glsl"),
-                      AssetManager::getShaderPath("cube.frag.glsl")
+                      SHADER_PATH("cube.vert.glsl"),
+                      SHADER_PATH("cube.frag.glsl")
                       );
     if (!cubeShader.load()) {
         // Handle shader loading error (message already printed by Shader::load)
@@ -205,12 +205,12 @@ int main(void) {
     // Define the paths to the skybox faces
     std::vector<std::string> skyboxFaces
     {
-        AssetManager::getTexturePath("skybox_right.jpg"),
-        AssetManager::getTexturePath("skybox_left.jpg"),
-        AssetManager::getTexturePath("skybox_top.jpg"),
-        AssetManager::getTexturePath("skybox_bottom.jpg"),
-        AssetManager::getTexturePath("skybox_front.jpg"),
-        AssetManager::getTexturePath("skybox_back.jpg"),
+        TEXTURE_PATH("skybox_right.jpg"),
+        TEXTURE_PATH("skybox_left.jpg"),
+        TEXTURE_PATH("skybox_top.jpg"),
+        TEXTURE_PATH("skybox_bottom.jpg"),
+        TEXTURE_PATH("skybox_front.jpg"),
+        TEXTURE_PATH("skybox_back.jpg"),
     };
 
     // Create and load the CubeTexture for the skybox
