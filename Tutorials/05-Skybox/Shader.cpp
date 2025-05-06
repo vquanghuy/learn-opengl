@@ -7,7 +7,6 @@
 #include <vector> // Needed for checkCompileErrors infoLog
 #include <cassert> // For assert (optional)
 
-
 // Constructor implementation: Simply stores the file paths.
 Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath)
     : ID(0), vertexFilePath(vertexPath), fragmentFilePath(fragmentPath)

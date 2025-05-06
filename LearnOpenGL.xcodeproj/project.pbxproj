@@ -43,15 +43,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		69CD42D42DC8E31C0028D52C /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "Assets/05-Skybox";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		69FAA3AB2DBCE00D00A95B21 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -148,7 +139,9 @@
 		69CD42F32DC8E35C0028D52C /* Exceptions for "Tutorials" folder in "05-Skybox" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"05-Skybox/AssetManager.cpp",
 				"05-Skybox/Camera.cpp",
+				"05-Skybox/CubeTexture.cpp",
 				"05-Skybox/FPSLimiter.cpp",
 				"05-Skybox/GLWindow.cpp",
 				"05-Skybox/main.cpp",
@@ -227,15 +220,6 @@
 				"01-Triangle/triangle.vert.glsl",
 			);
 		};
-		69CD42FD2DC8E4340028D52C /* Exceptions for "Assets" folder in "Copy Files" phase from "05-Skybox" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 69CD42D42DC8E31C0028D52C /* CopyFiles */;
-			membershipExceptions = (
-				"05-Skybox/cube.frag.glsl",
-				"05-Skybox/cube.jpg",
-				"05-Skybox/cube.vert.glsl",
-			);
-		};
 /* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -246,7 +230,6 @@
 				69AE2FFC2DBDE1BF0064AF59 /* Exceptions for "Assets" folder in "Copy Files" phase from "02-Texture" target */,
 				69AE30152DBE153B0064AF59 /* Exceptions for "Assets" folder in "Copy Files" phase from "03-Transformation" target */,
 				690C18472DC716A700218939 /* Exceptions for "Assets" folder in "Copy Files" phase from "04-Camera" target */,
-				69CD42FD2DC8E4340028D52C /* Exceptions for "Assets" folder in "Copy Files" phase from "05-Skybox" target */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -421,7 +404,7 @@
 			buildPhases = (
 				69CD42CF2DC8E31C0028D52C /* Sources */,
 				69CD42D02DC8E31C0028D52C /* Frameworks */,
-				69CD42D42DC8E31C0028D52C /* CopyFiles */,
+				69DB90A92DC99D2700D4C52C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -520,6 +503,26 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		69DB90A92DC99D2700D4C52C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ASSET_DIR=\"05-Skybox\"\nSOURCE_PATH=\"${SRCROOT%/}/Assets/$ASSET_DIR\"\nDEST_PATH=\"${TARGET_BUILD_DIR%/}/Assets\"\n\necho \"Copying asset $SOURCE_PATH to $DEST_PATH\"\nmkdir -p \"$DEST_PATH\"\ncp -RX \"$SOURCE_PATH\" \"$DEST_PATH\"\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		690C181B2DC63EA900218939 /* Sources */ = {
@@ -699,7 +702,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -767,7 +770,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

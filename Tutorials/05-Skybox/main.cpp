@@ -10,10 +10,12 @@
 #include <glm/ext/matrix_clip_space.hpp> // glm::perspective
 #include <glm/gtc/type_ptr.hpp>
 
+#include "AssetManager.h"
 #include "GLWindow.h"
 #include "FPSLimiter.h"
 #include "Shader.h"
 #include "Texture.h"
+#include "CubeTexture.h"
 #include "Mesh.h"
 #include "Camera.h"
 
@@ -153,15 +155,21 @@ int main(void) {
         mainCamera.processMouseMovement(xoffset, yoffset);
     });
     
+    // Config AssetManager
+    AssetManager::setBaseDirectory("./Assets/05-Skybox/");
+    
     // Load shaders using your Shader class
-    Shader cubeShader("./Assets/05-Skybox/cube.vert.glsl", "./Assets/05-Skybox/cube.frag.glsl");
+    Shader cubeShader(
+                      AssetManager::getShaderPath("cube.vert.glsl"),
+                      AssetManager::getShaderPath("cube.frag.glsl")
+                      );
     if (!cubeShader.load()) {
         // Handle shader loading error (message already printed by Shader::load)
         return -1; // Exit application if shader loading failed
     }
     
     // Load texture
-    Texture cubeTexture = Texture("./Assets/05-Skybox/cube.jpg");
+    Texture cubeTexture = Texture(AssetManager::getTexturePath("cube.jpg"));
     if (!cubeTexture.load()) {
         return -1; // Exit application if texture loading failed
     }
@@ -191,6 +199,24 @@ int main(void) {
                 cubePositions.push_back(position);
             }
         }
+    }
+    
+    // --- Setup Skybox Resources ---
+    // Define the paths to the skybox faces
+    std::vector<std::string> skyboxFaces
+    {
+        AssetManager::getTexturePath("skybox_right.jpg"),
+        AssetManager::getTexturePath("skybox_left.jpg"),
+        AssetManager::getTexturePath("skybox_top.jpg"),
+        AssetManager::getTexturePath("skybox_bottom.jpg"),
+        AssetManager::getTexturePath("skybox_front.jpg"),
+        AssetManager::getTexturePath("skybox_back.jpg"),
+    };
+
+    // Create and load the CubeTexture for the skybox
+    CubeTexture skyboxCubeTexture(skyboxFaces);
+    if (!skyboxCubeTexture.load()) { // Call load() after creating the object
+        return -1;
     }
     
     float fovDegrees = 45.0f; // Field of View in degrees
