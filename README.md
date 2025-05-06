@@ -70,6 +70,9 @@ My implementations include personal modifications and adaptations for the macOS 
 
 <img width="400" alt="tut-04-camera" src="https://github.com/user-attachments/assets/c5f8145d-9536-4fbc-b673-122d8334cd99" />
 
+<img width="400" alt="tut-05-Skybox" src="https://github.com/user-attachments/assets/5e03e85a-8795-46ec-baa6-921e7f58e45f" />
+
+
 
 
 
