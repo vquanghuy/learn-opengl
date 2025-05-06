@@ -48,15 +48,8 @@ private:
     GLuint ID = 0; // The OpenGL texture ID (0 indicates invalid/not loaded)
     std::vector<std::string> faces; // Stored file paths to the cubemap faces
 
-    // Optional: Store dimensions if needed, though cubemap faces should be square and same size
-    // int width = 0;
-    // int height = 0;
-
     // Utility function for reporting errors
     void logError(const std::string& message) const;
-
-    // Helper function to load the cubemap data (internal to the load method)
-    // unsigned int loadCubemap(std::vector<std::string> faces); // Removed as logic is in load()
 };
 
 #endif // CUBETEXTURE_H

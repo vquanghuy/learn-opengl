@@ -147,6 +147,7 @@
 				"05-Skybox/main.cpp",
 				"05-Skybox/Mesh.cpp",
 				"05-Skybox/Shader.cpp",
+				"05-Skybox/Skybox.cpp",
 				"05-Skybox/Texture.cpp",
 			);
 			target = 69CD42CE2DC8E31C0028D52C /* 05-Skybox */;

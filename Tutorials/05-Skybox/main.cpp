@@ -18,6 +18,7 @@
 #include "CubeTexture.h"
 #include "Mesh.h"
 #include "Camera.h"
+#include "Skybox.h"
 
 #define WINDOW_WIDTH 1024
 #define WINDOW_HEIGHT 768
@@ -219,6 +220,21 @@ int main(void) {
         return -1;
     }
     
+    // Load skybox shader
+    Shader skyboxShader(SHADER_PATH("skybox.vert.glsl"), SHADER_PATH("skybox.frag.glsl"));
+    if (!skyboxShader.load()) {
+        return -1;
+    }
+    
+    // Setup Skybox
+    Skybox skybox;
+    
+    if (!skybox.setupMesh()) {
+        return -1;
+    }
+    skybox.setShader(&skyboxShader);
+    skybox.setCubeTexture(&skyboxCubeTexture);
+    
     float fovDegrees = 45.0f; // Field of View in degrees
     // Get aspect ratio from the window object
     float aspectRatio = window.getAspectRatio();
@@ -251,6 +267,9 @@ int main(void) {
             
             cubeMesh.draw(modelMatrix, viewMatrix, projectionMatrix);
         }
+        
+        // Render skybox
+        skybox.draw(viewMatrix, projectionMatrix);
         
         // Limit the frame rate using the FPSLimiter object
         fpsLimiter.limit();
